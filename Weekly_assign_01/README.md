@@ -9,7 +9,7 @@ To collect the raw data by conducting web scraping towards AA zones webpages, so
 
 1. Write a JavaScripe For loop to get information that is across multiple pages named in a predicted way. Use the self-executing anonymous function ```javascript // (function () {/*code*/} ) () ``` to solve the problem of "For loop only shows last value of array" 
 
-2. Use ```javascript("000" + num).slice(-4)``` to make sure all numbers are specific-length integer values, so that the file names in the URL could be represented by an uniform unknown number. 
+2. Use ```javascript("00" + num).slice(-2)``` to make sure all numbers are specific-length integer values, so that the file names in the URL could be represented by an uniform unknown number. 
 
 ## Reference
 * [How can I format an integer to a specific length in javascript?](https://stackoverflow.com/questions/1127905/how-can-i-format-an-integer-to-a-specific-length-in-javascript)
