@@ -3,7 +3,7 @@
 This is one of the series of weekly assignments under Final Project 1. This documentation would be progressive and be distributed in each week's folder.
 
 # The Goal of Week 1
-To collect the raw data by conducting web scraping towards AA zones webpages, so that we could make a modern and user-friendly map-based information inquiry interface in the next few classes.
+To collect the raw data by conducting web scraping towards AA zones webpages, so that we could make a modern and user-friendly map-based information inquiry interface in the next few classes. Detailed requirements of the assignment please refer to 
 
 # Highlights
 
