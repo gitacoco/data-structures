@@ -1,6 +1,6 @@
 # Introduction
 
-This is the first one of the series of weekly assignments under Final Project 1. So this documentation would be progressive and be distributed in each week's folder.
+This is one of the series of weekly assignments under Final Project 1. This documentation would be progressive and be distributed in each week's folder.
 
 # The Goal of Week 1
 To collect the raw data by conducting web scraping towards AA zones webpages, so that we could make a modern and user-friendly map-based information inquiry interface in the next few classes.
@@ -13,4 +13,4 @@ To collect the raw data by conducting web scraping towards AA zones webpages, so
 
 ## Reference
 * [How can I format an integer to a specific length in javascript?](https://stackoverflow.com/questions/1127905/how-can-i-format-an-integer-to-a-specific-length-in-javascript)
-* [self-executing anonymous function](https://www.cnblogs.com/csuwujing/p/8021913.html)
+* [Self-executing anonymous function](https://www.cnblogs.com/csuwujing/p/8021913.html)
