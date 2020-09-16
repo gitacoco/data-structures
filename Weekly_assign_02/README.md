@@ -1,6 +1,7 @@
 # Background
 
-This week we're going to extract the AA meeting adresses in street level from one of the files we collected last week. 
+[Detailed Requirements](https://github.com/gitacoco/data-structures/blob/master/weekly_assignment_02.md)
+This week we're going to extract the AA meeting addresses in the street level from one of the files we collected last week. It's not difficult for us to narrow down to the <td> tag through Cheerio.js, but after parsing through the raw text, there are some challenges…
 
 ```html
 <tr style="margin-bottom:10px">
@@ -16,12 +17,13 @@ This week we're going to extract the AA meeting adresses in street level from on
                         	Sun.2pm=Women's Meeting 
                         </div>
 ```
-
-However, after parsing through the raw text, we could find that the address **303 West 42nd Street** is not inside the td element and not enclosed in any tag. And even worse, the address is followed by a more specific address, such as a room number, which is not what we want.
-
-[Detailed Requirements](https://github.com/gitacoco/data-structures/blob/master/weekly_assignment_02.md)
+* **Challenge1** Besides the <td> elements that contain the address, there are other unnecessary ones.
+* **Challenge2** The address **303 West 42nd Street** is not inside the <td> tags and not enclosed in any tag. 
+* **Challenge3** The address is followed by a lower-level address, such as a room number, which is not what we want.
 
 # Process
+## Programming Alternative
+- Regular Expression
 
 ```javascript
 
