@@ -24,7 +24,7 @@ fs.writeFileSync('data/addressList.txt', addressList);            // Write all t
 # Background
 
 [Detailed Requirements](https://github.com/gitacoco/data-structures/blob/master/weekly_assignment_02.md)
-This week we're going to extract the AA meeting addresses in the street level from one of the files we collected last week. It's not difficult for us to narrow down to the <td> tag through Cheerio.js, but after parsing through the raw text, there are some challenges…
+This week we're going to extract the AA meeting addresses at a street level from one of the files we collected last week. It's not difficult for us to narrow down to the <td> tag through Cheerio.js, but after parsing through the raw text, there are some challenges…
 
 ```html
 <tr style="margin-bottom:10px">
