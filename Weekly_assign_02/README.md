@@ -77,8 +77,8 @@ $('td[style="border-bottom:1px solid #e3e3e3; width:260px"]').each(function(i, e
 ```
 At this time, I questioned the maintainability of my code. A series of spli() did solve the problem, but maybe several days later I would forget why I coded this way. I was thinking of using **Regular Expression**. I believe this would be an elegant way, but may not be concise enough, so I eliminate it. By analyzing these split(), I found that they were supporting for different purposes. 
 * The first split() is to split, of course, and to remove <br> tags. Actually, we just want the text rather than the HTML tags. So why don't we use .text() directly?
-
-
+* The second split() is to remove the comma and all other text(lower-level addressess) behind it, which applies to most of the cases.
+* The last two 
 
 
 
