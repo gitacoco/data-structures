@@ -93,3 +93,4 @@ $('td[style="border-bottom:1px solid #e3e3e3; width:260px"] b').each(function(i,
 * [String.prototype.split()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split)
 * [CSS Selector Reference](https://www.w3schools.com/cssref/css_selectors.asp)
 * [jQuery text() Method](https://www.w3schools.com/jquery/html_text.asp)
+* [Node.nextSibling](https://developer.mozilla.org/en-US/docs/Web/API/Node/nextSibling)
