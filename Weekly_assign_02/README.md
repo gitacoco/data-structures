@@ -24,7 +24,7 @@ fs.writeFileSync('data/addressList.txt', addressList);            // Write all t
 # Background
 
 [Detailed Requirements](https://github.com/gitacoco/data-structures/blob/master/weekly_assignment_02.md)
-This week we're going to extract the AA meeting addresses at a street level from one of the files we collected last week. It's not difficult for us to narrow down to the <td> tag through Cheerio.js, but after parsing through the raw text, there are some challenges…
+This week we're going to extract the AA meeting addresses at a street level from one of the files we collected last week. It's not difficult to narrow down to the `<td>` tag through Cheerio.js. But after parsing through the raw text, the challenges were unlocked…
 
 ```html
 <tr style="margin-bottom:10px">
@@ -53,8 +53,8 @@ This week we're going to extract the AA meeting addresses at a street level from
                     </td>
                   </tr>
 ```
-* **Challenge 1** Besides the <td> elements that contain the address, there are other unnecessary ones.
-* **Challenge 2** The address **303 West 42nd Street** is not inside the <td> tags and not enclosed in any tag. 
+* **Challenge 1** Besides the `<td>` elements that contain the address, there are other unnecessary ones.
+* **Challenge 2** The address **303 West 42nd Street** is not inside the `<td>` tags and not enclosed in any tag. 
 * **Challenge 3** The address is followed by a lower-level address, such as a room number, which is not what we want.
 
 # Process and Code Alternatives
@@ -63,7 +63,7 @@ First of all, we need to shake off the second burdensome `<td>` element. Althoug
 	if($(elem).attr("style")==="border-bottom:1px solid #e3e3e3; width:260px") 
 ```
 
-However, I think this is a zigzag way. I want to make it more concise: to select one element with a certain style, just like Intersection (A ∩ B) in mathematics rather than a conditional statement. So then I went to:
+However, this is a zigzag way. I want to make it more concise: to select one element with a certain style, just like Intersection (A ∩ B) in mathematics rather than a conditional statement. So then I went to:
 ```javascript
 	$('td[style="border-bottom:1px solid #e3e3e3; width:260px"]')
 ```
