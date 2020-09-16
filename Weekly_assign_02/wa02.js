@@ -11,8 +11,8 @@ $('td[style="border-bottom:1px solid #e3e3e3; width:260px"] b') // Use CSS selec
     .each(function(i, elem){
     addressList += $(elem.nextSibling.nextSibling).text()       // Use .nextSibling method to re-navigate to a new object
                                                 .split(',')[0]  // Split it and only keep the first object
-                                                .split('-')[0]  // Split it and only keep the first object
-                                                .split('Rm')[0] // Split it and only keep the first object
+                                                .split('-')[0]  // Deal with the outlier
+                                                .split('Rm')[0] // Deal with the outlier
                                                 .trim() + '\n'  // Remove spaces and make the variable hold the lines
 });
    
