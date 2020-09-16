@@ -56,6 +56,7 @@ This week we're going to extract the AA meeting addresses at a street level from
 * **Challenge 1** Besides the `<td>` elements that contain the address, there are other unnecessary ones.
 * **Challenge 2** The address **303 West 42nd Street** is not inside the `<td>` tags and not enclosed in any tag. 
 * **Challenge 3** The address is followed by a lower-level address, such as a room number, which is not what we want.
+* **Challenge 4** The data is not clean and standard. There are a few addresses organized in a different way.
 
 # Process and Code Alternatives
 First of all, we need to shake off the second burdensome `<td>` element. Although they have no class attribute, we can differentiate them by style values. Cheerio has a same `.attr()` method as JQuery, so I used 
