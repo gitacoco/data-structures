@@ -44,6 +44,54 @@ async.eachSeries(addresses, function(address, callback) {
   //Write into a JOSN file
 }
 ```
+This step is the most important part in this task. I met many challenges here. Our goal is to get the "Latitude" and "Longitude" coordinate for each address. So we need to filter other information out, or manage to get the exact data. Nested Arrays in JSON Objects flooded the response data, which means values in an array are also another array, or even another JSON object. 
+
+```JSON
+{
+	"version" : "4.10",
+	"TransactionId" : "7d2cbbc1-8972-4023-98d5-1e7759e11b31",
+	"Version" : "4.1",
+	"QueryStatusCodeValue" : "200",
+	"FeatureMatchingResultType" : "BrokenTie",
+	"FeatureMatchingResultCount" : "2",
+	"TimeTaken" : "0.0624732",
+	"ExceptionOccured" : "False",
+	"Exception" : "",
+	"InputAddress" :
+		{
+		"StreetAddress" : "63 FIFTH AVE New York NY ",
+		"City" : "New York",
+		"State" : "NY",
+		"Zip" : ""
+		},
+	"OutputGeocodes" :
+	[
+		{
+		"OutputGeocode" :
+			{
+			"Latitude" : "40.6807157",
+			"Longitude" : "-73.9773913",
+			"NAACCRGISCoordinateQualityCode" : "00",
+			"NAACCRGISCoordinateQualityType" : "AddressPoint",
+			"MatchScore" : "97.3372781065089",
+			"MatchType" : "Relaxed;Soundex",
+			"FeatureMatchingResultType" : "BrokenTie",
+			"FeatureMatchingResultCount" : "2",
+			"FeatureMatchingGeographyType" : "Parcel",
+			"RegionSize" : "0",
+			"RegionSizeUnits" : "Meters",
+			"MatchedLocationType" : "LOCATION_TYPE_STREET_ADDRESS",
+			"ExceptionOccured" : "False",
+			"Exception" : "",
+			"ErrorMessage" : ""
+			}
+		}
+	]
+}
+```
+
+So we need to deconstruct them one by one.
+
 ### Read Data from Previous Work(local file)
 
 
