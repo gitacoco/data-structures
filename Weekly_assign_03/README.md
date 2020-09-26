@@ -118,9 +118,13 @@ function() {
     fs.writeFileSync('data/first.json', JSON.stringify(meetingsData));
 }
 ```
+At this point, the whole process can be considered to be workable.
 
 ### Read Data from Previous Work(local file)
-
+To prepare my data for work on this assignment, I made three modifications. Thus, they could be an array. 
+1. `var addressList = '';` to `var addressList = []; `
+2. `.trim() + '\n'` to `.trim() + ','`
+3. `var array = addressList.split(',');`
 
 #### Reference
 
