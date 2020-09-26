@@ -25,9 +25,25 @@ let addresses = ["63 Fifth Ave", "16 E 16th St", "2 W 13th St"];
 ```
 
 ### Make Requests to [TAMU Geocoding APIs](http://geoservices.tamu.edu/Services/Geocode/WebService/)
+In the following two steps, we use NPM Async Module for asynchronous control flow.
+```js
+async.eachSeries(addresses, function(address, callback) {
+  //Write a script for query
+  //Use querystring.stringify(obj,separator,eq,options) to construct a querystring
+  //Make a request for one address
+  //……
+}
+```
 
 ### Process the Response Data and Save it to a Local File
 
+```js
+async.eachSeries(addresses, function(address, callback) {
+  //……
+  //Extract the target information in the response
+  //Write into a JOSN file
+}
+```
 ### Read Data from Previous Work(local file)
 
 
