@@ -17,7 +17,7 @@ To avoiding being hacked, we need to keep our API key off of Github. We use NPM 
 require('dotenv').config() //read the .env file in root directory by default
 process.env. + variable's name //match the corresponding variable
 ```
-### Use Sample Data
+### Using Sample Data
 Last week, my final outcome is not organized as arrays. So I decided to run through the whole process using the sample data first and then deal with the original data.
 Sample Data:
 ```js
@@ -41,9 +41,11 @@ async.eachSeries(addresses, function(address, callback) {
 async.eachSeries(addresses, function(address, callback) {
   //……
   //Extract the target information in the response
+  //Build a GeoJSON template
   //Write into a JOSN file
 }
 ```
+#### Take its essence: get what we want 
 This step is the most important part in this task. I met many challenges here. Our goal is to get the "Latitude" and "Longitude" coordinate for each address. So we need to filter other information out, or manage to get the exact data. Nested Arrays in JSON Objects flooded the response data, which means values in an array are also another array, or even another JSON object. 
 
 ```JSON
@@ -89,15 +91,21 @@ This step is the most important part in this task. I met many challenges here. O
 	]
 }
 ```
-
-So we need to deconstruct them one by one.
+So we need to deconstruct them one by one. First, we could access the object value "OutputGeocodes" by using dot (.) or bracket ([]) notation `tamuGeo['OutputGeocodes']`, and next we can access the first and the only array value by using the index number `tamuGeo['OutputGeocodes'][0]`. Then the left two levels are both Objects, whose values could be accessed by using dot (.) notation `tamuGeo['OutputGeocodes'][0].OutputGeocode.Latitude`. And so on and so forth
+```JS
+        let city = tamuGeo['InputAddress'].City;
+        let state = tamuGeo['InputAddress'].State;
+        let latitude = tamuGeo['OutputGeocodes'][0].OutputGeocode.Latitude;
+        let longitude = tamuGeo['OutputGeocodes'][0].OutputGeocode.Longitude;
+```
 
 ### Read Data from Previous Work(local file)
 
 
 #### Reference
 
-* [Texas A&M Geoservices Geocoding APIs](http://geoservices.tamu.edu/Services/Geocode/WebService/)  
 * [Node `querystring` module](https://nodejs.org/api/querystring.html)
 * [npm `async` module](http://caolan.github.io/async/)  
 * [npm `dotenv` module](https://www.npmjs.com/package/dotenv)
+* [JSON Arrays](https://www.w3schools.com/js/js_json_arrays.asp)
+* [JSON Objects](https://www.w3schools.com/js/js_json_objects.asp)
