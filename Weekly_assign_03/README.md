@@ -126,6 +126,17 @@ To prepare my data for work on this assignment, I made three modifications. Thus
 2. `.trim() + '\n'` to `.trim() + ','`
 3. `var array = addressList.split(',');`
 
+But the problem is that there is a blank line in the last row. I tried to use regular expression to eliminate it:
+```js
+function replaceBlank(){
+	var reg = /\n(\n)*( )*(\n)*\n/g;
+	var oldStr = $("#oldStr").val();
+	var newStr = oldStr.replace(reg,"\n");
+	$("#newStr").val(newStr);
+}
+```
+But it didn't work. I finally delete the last bank line manually. 
+
 #### Reference
 
 * [Node `querystring` module](https://nodejs.org/api/querystring.html)
