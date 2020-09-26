@@ -45,7 +45,7 @@ async.eachSeries(addresses, function(address, callback) {
   //Write into a JOSN file
 }
 ```
-Nested Arrays in JSON Objects flooded the response data, which means values in an array are also another array, or even another JSON object. 
+After carefully examination, I found that nested Arrays in JSON Objects flooded the response data, which means values in an array are also another array, or even another JSON object. 
 
 ```JSON
 {
@@ -93,12 +93,30 @@ Nested Arrays in JSON Objects flooded the response data, which means values in a
 #### Take its essence: get what we want 
 This step is the most important part in this task. I met many challenges here. Our goal is to get the "Latitude" and "Longitude" coordinate for each address. So we need to filter other information out, or manage to get the exact data.
 
-So we need to deconstruct them one by one. First, we could access the object value "OutputGeocodes" by using dot (.) or bracket ([]) notation `tamuGeo['OutputGeocodes']`, and next we can access the first and the only array value by using the index number `tamuGeo['OutputGeocodes'][0]`. Then the left two levels are both Objects, whose values could be accessed by using dot (.) notation `tamuGeo['OutputGeocodes'][0].OutputGeocode.Latitude`. And so on and so forth
+We need to deconstruct them one by one. First, we could access the object value "OutputGeocodes" by using dot (.) or bracket ([]) notation `tamuGeo['OutputGeocodes']`, and next we can access the first and the only array value by using the index number `tamuGeo['OutputGeocodes'][0]`. Then the left two levels are both Objects, whose values could be accessed by using dot (.) notation `tamuGeo['OutputGeocodes'][0].OutputGeocode.Latitude`. And so on and so forth
 ```JS
+request(apiRequest, function(error, response, body) {
+        //if (err){ throw err; }
+        
+        let tamuGeo = JSON.parse(body);
+	
         let city = tamuGeo['InputAddress'].City;
         let state = tamuGeo['InputAddress'].State;
         let latitude = tamuGeo['OutputGeocodes'][0].OutputGeocode.Latitude;
         let longitude = tamuGeo['OutputGeocodes'][0].OutputGeocode.Longitude;
+```
+
+#### Template first, variables filled, New data pushed
+```JS
+let finalGeo = { address: address, city, state, latLong: {lat: latitude, lng: longitude} };
+meetingsData.push(finalGeo);
+```
+#### Save the file
+Finally, use JSON.stringify() method to convert a JavaScript object or value to a JSON string.
+```js
+function() {
+    fs.writeFileSync('data/first.json', JSON.stringify(meetingsData));
+}
 ```
 
 ### Read Data from Previous Work(local file)
