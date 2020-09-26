@@ -1,0 +1,479 @@
+[
+    {
+        "address": "252 West 46th Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7593831",
+            "lng": "-73.9872329"
+        }
+    },
+    {
+        "address": "303 West 42nd Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7575385",
+            "lng": "-73.9901368"
+        }
+    },
+    {
+        "address": "303 West 42nd Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7575385",
+            "lng": "-73.9901368"
+        }
+    },
+    {
+        "address": "305 7th Avenue",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7467107",
+            "lng": "-73.9935208"
+        }
+    },
+    {
+        "address": "1 West 53rd Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7608523",
+            "lng": "-73.9765938"
+        }
+    },
+    {
+        "address": "303 West 42nd Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7575385",
+            "lng": "-73.9901368"
+        }
+    },
+    {
+        "address": "133 West 46th Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.6589343",
+            "lng": "-73.9348705"
+        }
+    },
+    {
+        "address": "441 West 26th Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7495486",
+            "lng": "-74.0015106"
+        }
+    },
+    {
+        "address": "446 West 33rd Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.753496",
+            "lng": "-73.9989428"
+        }
+    },
+    {
+        "address": "252 West 46th Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7593831",
+            "lng": "-73.9872329"
+        }
+    },
+    {
+        "address": "252 West 46th Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7593831",
+            "lng": "-73.9872329"
+        }
+    },
+    {
+        "address": "252 West 46th Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7593831",
+            "lng": "-73.9872329"
+        }
+    },
+    {
+        "address": "339 West 47th Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7612077",
+            "lng": "-73.9891128"
+        }
+    },
+    {
+        "address": "303 West 42nd St",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7575385",
+            "lng": "-73.9901368"
+        }
+    },
+    {
+        "address": "139 West 31st Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.647412",
+            "lng": "-73.9480599"
+        }
+    },
+    {
+        "address": "422 West 57th Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7682311",
+            "lng": "-73.9868768"
+        }
+    },
+    {
+        "address": "211 West 30th Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7486793956479",
+            "lng": "-73.9927286472649"
+        }
+    },
+    {
+        "address": "252 West 46th Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7593831",
+            "lng": "-73.9872329"
+        }
+    },
+    {
+        "address": "1 West 53rd Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7608523",
+            "lng": "-73.9765938"
+        }
+    },
+    {
+        "address": "422 West 57th Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7682311",
+            "lng": "-73.9868768"
+        }
+    },
+    {
+        "address": "7 West 55th Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7618823",
+            "lng": "-73.9751297"
+        }
+    },
+    {
+        "address": "252 West 46th Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7593831",
+            "lng": "-73.9872329"
+        }
+    },
+    {
+        "address": "729 7th Avenue",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7601119",
+            "lng": "-73.9837538"
+        }
+    },
+    {
+        "address": "538 West 47th Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7634021",
+            "lng": "-73.9948352"
+        }
+    },
+    {
+        "address": "1000 Tenth Avenue",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7700536177104",
+            "lng": "-73.9877635987168"
+        }
+    },
+    {
+        "address": "303 West 42nd Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7575385",
+            "lng": "-73.9901368"
+        }
+    },
+    {
+        "address": "252 West 46th Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7593831",
+            "lng": "-73.9872329"
+        }
+    },
+    {
+        "address": "307 West 26th Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7474685",
+            "lng": "-73.9974137"
+        }
+    },
+    {
+        "address": "405 West 59th Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7697538",
+            "lng": "-73.9857965"
+        }
+    },
+    {
+        "address": "303 West 42nd Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7575385",
+            "lng": "-73.9901368"
+        }
+    },
+    {
+        "address": "422 W. 57th St.",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7682311",
+            "lng": "-73.9868768"
+        }
+    },
+    {
+        "address": "133 West 46th Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.6589343",
+            "lng": "-73.9348705"
+        }
+    },
+    {
+        "address": "133 West 46th Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.6589343",
+            "lng": "-73.9348705"
+        }
+    },
+    {
+        "address": "303 West 42nd Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7575385",
+            "lng": "-73.9901368"
+        }
+    },
+    {
+        "address": "296 9th Avenue",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7493642017494",
+            "lng": "-73.9991233310954"
+        }
+    },
+    {
+        "address": "139 West 31st Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.647412",
+            "lng": "-73.9480599"
+        }
+    },
+    {
+        "address": "1 West 53rd Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7608523",
+            "lng": "-73.9765938"
+        }
+    },
+    {
+        "address": "484 West 43rd Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7599913",
+            "lng": "-73.9948326"
+        }
+    },
+    {
+        "address": "7 West 55th Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7618823",
+            "lng": "-73.9751297"
+        }
+    },
+    {
+        "address": "252 West 46th Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7593831",
+            "lng": "-73.9872329"
+        }
+    },
+    {
+        "address": "252 West 46th Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7593831",
+            "lng": "-73.9872329"
+        }
+    },
+    {
+        "address": "4 West 43rd Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7543885",
+            "lng": "-73.9812083"
+        }
+    },
+    {
+        "address": "252 West 46th Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7593831",
+            "lng": "-73.9872329"
+        }
+    },
+    {
+        "address": "296 Ninth Avenue",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.8228042471098",
+            "lng": "-73.8091987304391"
+        }
+    },
+    {
+        "address": "1 West 53rd Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7608523",
+            "lng": "-73.9765938"
+        }
+    },
+    {
+        "address": "210 West 31st Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.6456042",
+            "lng": "-73.9481792"
+        }
+    },
+    {
+        "address": "422 West 57th Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7682311",
+            "lng": "-73.9868768"
+        }
+    },
+    {
+        "address": "252 West 46th Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7593831",
+            "lng": "-73.9872329"
+        }
+    },
+    {
+        "address": "134 West 29th Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7472463",
+            "lng": "-73.9917061"
+        }
+    },
+    {
+        "address": "1000 Tenth Avenue",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7700536177104",
+            "lng": "-73.9877635987168"
+        }
+    },
+    {
+        "address": "446 West 33rd Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.753496",
+            "lng": "-73.9989428"
+        }
+    },
+    {
+        "address": "423 West 46th Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.6483729",
+            "lng": "-74.009462"
+        }
+    },
+    {
+        "address": "252 West 46th Street",
+        "city": "New York",
+        "state": "NY",
+        "latLong": {
+            "lat": "40.7593831",
+            "lng": "-73.9872329"
+        }
+    }
+]
