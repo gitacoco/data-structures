@@ -150,3 +150,6 @@ var result=JSON.parse(fs.readFileSync(file));
 * [npm `dotenv` module](https://www.npmjs.com/package/dotenv)
 * [JSON Arrays](https://www.w3schools.com/js/js_json_arrays.asp)
 * [JSON Objects](https://www.w3schools.com/js/js_json_objects.asp)
+* [Convert String to Array with JavaScript's split Method](https://www.dyn-web.com/javascript/strings/split.php)
+* [fs Read File](https://nodejs.org/api/fs.html#fs_fs_readfilesync_path_options)
+* [MDN JSON.stringify()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
