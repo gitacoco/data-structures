@@ -136,6 +136,12 @@ function replaceBlank(){
 }
 ```
 But it didn't work. I finally delete the last bank line manually. 
+In the end, make sure to synchronously read the entire contents of a file rather than using `fs.readFile()`, then successfully accomplished.
+```js
+var fs=require('fs');
+var file="./data/wa02_addressList.json";
+var result=JSON.parse(fs.readFileSync(file));
+```
 
 #### Reference
 
