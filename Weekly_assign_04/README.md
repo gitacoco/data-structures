@@ -5,7 +5,7 @@ This week, I'm going to continue working with the data I scraped, parsed, and au
 ## Part One: Plan
 
 I built a data model for the AA meetings data using Entity-Relationship Model. Following is the building process:
-1. 
+1. xx
 
 ## Part Two: Create a table in my database
 
