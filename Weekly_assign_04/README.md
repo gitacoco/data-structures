@@ -51,7 +51,6 @@ fs.writeFileSync('data/addressList.json', JSON.stringify(array));
 ```
 3. using .map() method
 ```js
-var cheerio = require('cheerio');
 var array = $('td[style="border-bottom:1px solid #e3e3e3; width:260px"] b').map(function(i, elem) {
   return $(elem.nextSibling.nextSibling).text().split(',')[0].split(/-|Rm/)[0].trim();
 });
