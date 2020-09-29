@@ -4,20 +4,26 @@ This week, I'm going to continue working with the data I scraped, parsed, and au
 
 ## Part One: Plan
 
-I built a data model for the AA meetings data using Entity-Relationship Model. Following is the building process:
-1. I imitate the common thinking of locating an event or describing an event: "what meeting, when and where" or "when and where, there is a meeting of xxx". So I summarized 3 entities: Location, Time and Meetings.
+I built a data model for the AA meetings data using ER diagrams. Following is the building process:
+1. I imitated the common thinking of locating an event or describing an event: "what meeting, when and where" or "when and where, there is a meeting of xxx". So I summarized 3 entities: Location, Time and Meetings.
 2. I sorted out all the content/data/variables from the website that I believe to be relevant, and categorized them into those three entities.
     - Location: Longitude, Latitude, Building Name(partial), Street, Zone, Borough, City, State, Zip Code
     - Time: Day, Start Time, End Time
     - Meeting: Meeting Name(partial), Meeting Type, Special Interest
-3. I determined Primary Key(PK) and Foreign Key(FK) for each entity,
+So the hierarchy of the data would be:
+pic1
+
+3. I determined Primary Key(PK) and Foreign Key(FK) for each entity:
     - Location: Location ID(PK), Meeting ID(FK), Longitude, Latitude, Building Name(partial), Street, Zone, Borough, City, State, Zip Code
     - Time: Time ID (PK), Meeting ID(FK), Day, Start Time, End Time
     - Meeting: Meeting ID(PK), Location ID(FK), Time ID(FK), Meeting Name, Meeting Type, Special Interest
+4. To map relationships among entities. In other words, to illustrate the association between two entities.
+
+
 
 ## Part Two: Create a table in my database
 
-The data last week I parsed from TAMU API has five dimensions, so I'm to build a table with five columns correspondingly. Here is one piece of the data:
+The data last week I parsed from TAMU API has five attributes, so I'm to build a table with five columns correspondingly. Here is one piece of the data:
 ```JSON
 [ {"address":"303 West 42nd Street","city":"New York","state":"NY","latLong":{"lat":"40.7575385","lng":"-73.9901368"}}, … ]
 ```
@@ -118,4 +124,6 @@ null [ { address: '303 West 42nd Street',
 
 #### Reference
 
-* [4.1.2.2. String Constants with C-style Escapes](https://www.postgresql.org/docs/13/sql-syntax-lexical.html)
+* [String Constants with C-style Escapes](https://www.postgresql.org/docs/13/sql-syntax-lexical.html)
+* [Crow’s Foot Notation](https://www.vertabelo.com/blog/crow-s-foot-notation/)
+* [What is an Entity Relationship Diagram (ERD)?](https://www.lucidchart.com/pages/er-diagrams)
