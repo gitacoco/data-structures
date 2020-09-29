@@ -53,9 +53,24 @@ null [ { address: '303 West 42nd Street, New York, NY',
     lat: null,
     long: null },
 ```
-Unfortunately, the result was not we want. Then I realized that I needed to put an E' in front of those three string, respectively, to avoid the SQL escaping the commas among name/value pairs in JSON. 
+Unfortunately, the result that showed a dislocation was still not we want. Then I realized that I needed to put an E' in front of those three string, respectively, to avoid the SQL escaping the commas among name/value pairs in JSON. 
 ```js
 var thisQuery = "INSERT INTO aalocations VALUES (E'" + value.address + "', E'" + value.city + "', E'" + value.state + "', " + value.latLong.lat + ", " + value.latLong.lng + ");";
+```
+However, after I ran `wa04c.js` again, I found that the former contents were not covered automatically, which indicates that `INSERT INTO aalocations VALUES` will just add new rows below the previous ones. To solve this issue, I made a fresh start from `wa04a.js` to `wa04c.js` and get the proper result:
+```console
+ec2-user:~/environment $ node wa04c.js
+null [ { address: '303 West 42nd Street',
+    city: 'New York',
+    state: 'NY',
+    lat: 40.7575385,
+    long: -73.9901368 },
+  { address: '252 West 46th Street',
+    city: 'New York',
+    state: 'NY',
+    lat: 40.7593831,
+    long: -73.9872329 },
+    …
 ```
 
 #### Reference
