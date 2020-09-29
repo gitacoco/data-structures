@@ -1,155 +1,46 @@
-# Weekly Assignment 3
+# Weekly Assignment 4
 
-This assignment is going to make queries using the address data parsed in weekly assignment 2, filter the response, make sure the final output is a `.json` **file** that contains an **array** that contains an **object** for each meeting:
-```js
-[ 
-  { address: '63 Fifth Ave, New York, NY', latLong: { lat: 40.7353041, lng: -73.99413539999999 } },
-  { address: '2 W 13th St, New York, NY', latLong: { lat: 40.7353297, lng: -73.99447889999999 } } 
-]
-```
+This week, I'm going to continue working with the data I scraped, parsed, and augmented in the previous three assignments. In this assignment, I will write my AA data to a relational database.
 
-## Start
+## Part One: Plan
 
-### Configure an Environment Variable for API Key
+## Part Two: Create a table in my database
 
-To avoiding being hacked, we need to keep our API key off of Github. We use NPM Dotenv Module to manage Environment Variable for Node project.
-```js
-require('dotenv').config() //read the .env file in root directory by default
-process.env. + variable's name //match the corresponding variable
-```
-### Using Sample Data
-Last week, my final outcome is not organized as arrays. So I decided to run through the whole process using the sample data first and then deal with the original data.
-Sample Data:
-```js
-let addresses = ["63 Fifth Ave", "16 E 16th St", "2 W 13th St"];
-```
-
-### Make Requests to [TAMU Geocoding APIs](http://geoservices.tamu.edu/Services/Geocode/WebService/)
-In the following two steps, we use NPM Async Module for asynchronous control flow.
-```js
-async.eachSeries(addresses, function(address, callback) {
-  //Write a script for query
-  //Use querystring.stringify(obj,separator,eq,options) to construct a querystring
-  //Make a request for one address
-  //……
-}
-```
-
-### Process the Response Data and Save it to a Local File
-
-```js
-async.eachSeries(addresses, function(address, callback) {
-  //……
-  //Extract the target information in the response
-  //Build a GeoJSON template
-  //Write into a JOSN file
-}
-```
-After carefully examination, I found that nested Arrays in JSON Objects flooded the response data, which means values in an array are also another array, or even another JSON object. 
-
+The data last week I parsed from TAMU API has five dimensions, so I'm to build a table with five columns correspondingly. Here is one piece of the data:
 ```JSON
-{
-	"version" : "4.10",
-	"TransactionId" : "7d2cbbc1-8972-4023-98d5-1e7759e11b31",
-	"Version" : "4.1",
-	"QueryStatusCodeValue" : "200",
-	"FeatureMatchingResultType" : "BrokenTie",
-	"FeatureMatchingResultCount" : "2",
-	"TimeTaken" : "0.0624732",
-	"ExceptionOccured" : "False",
-	"Exception" : "",
-	"InputAddress" :
-		{
-		"StreetAddress" : "63 FIFTH AVE New York NY ",
-		"City" : "New York",
-		"State" : "NY",
-		"Zip" : ""
-		},
-	"OutputGeocodes" :
-	[
-		{
-		"OutputGeocode" :
-			{
-			"Latitude" : "40.6807157",
-			"Longitude" : "-73.9773913",
-			"NAACCRGISCoordinateQualityCode" : "00",
-			"NAACCRGISCoordinateQualityType" : "AddressPoint",
-			"MatchScore" : "97.3372781065089",
-			"MatchType" : "Relaxed;Soundex",
-			"FeatureMatchingResultType" : "BrokenTie",
-			"FeatureMatchingResultCount" : "2",
-			"FeatureMatchingGeographyType" : "Parcel",
-			"RegionSize" : "0",
-			"RegionSizeUnits" : "Meters",
-			"MatchedLocationType" : "LOCATION_TYPE_STREET_ADDRESS",
-			"ExceptionOccured" : "False",
-			"Exception" : "",
-			"ErrorMessage" : ""
-			}
-		}
-	]
+[ {"address":"303 West 42nd Street","city":"New York","state":"NY","latLong":{"lat":"40.7575385","lng":"-73.9901368"}}, … ]
+```
+After configuring the database credentials, I use `pg` module to make SQL statements to create a new table. 
+```js
+// Sample SQL statement to create a table: 
+const { Client } = require('pg');
+var thisQuery = "CREATE TABLE aalocations (address varchar(100), city varchar(50), state varchar(50), lat double precision, long double precision);";
+
 }
 ```
-#### Take its essence: get what we want 
-This step is the most important part in this task. I met many challenges here. Our goal is to get the "Latitude" and "Longitude" coordinate for each address. So we need to filter other information out, or manage to get the exact data.
+All progress has been satisfactory up to now. But next, I met several issues.
 
-We need to deconstruct them one by one. First, we could access the object value "OutputGeocodes" by using dot (.) or bracket ([]) notation `tamuGeo['OutputGeocodes']`, and next we can access the first and the only array value by using the index number `tamuGeo['OutputGeocodes'][0]`. Then the left two levels are both Objects, whose values could be accessed by using dot (.) notation `tamuGeo['OutputGeocodes'][0].OutputGeocode.Latitude`. And so on and so forth
-```JS
-request(apiRequest, function(error, response, body) {
-        //if (err){ throw err; }
-        
-        let tamuGeo = JSON.parse(body);
-	
-        let city = tamuGeo['InputAddress'].City;
-        let state = tamuGeo['InputAddress'].State;
-        let latitude = tamuGeo['OutputGeocodes'][0].OutputGeocode.Latitude;
-        let longitude = tamuGeo['OutputGeocodes'][0].OutputGeocode.Longitude;
-```
+## Part Three: Populate the database
 
-#### Template first, variables filled, New data pushed
-```JS
-let finalGeo = { address: address, city, state, latLong: {lat: latitude, lng: longitude} };
-meetingsData.push(finalGeo);
-```
-#### Save the file
-Finally, use JSON.stringify() method to convert a JavaScript object or value to a JSON string.
+In this step, I continued to use `pg` module to insert my AA data into the table I created.
+
+### Prepare the data file
+
+First of all, we need to make sure we have the correct number of rows in our JSON file, however, as I said last week, there is a blank line 
+
+### Problem solving while populating
+
+In the beginning, I modified the starter code with my own situation —— to add more columns:
 ```js
-function() {
-    fs.writeFileSync('data/first.json', JSON.stringify(meetingsData));
-}
+var thisQuery = "INSERT INTO aalocations VALUES (E'" + value.address + "', " + value.city + ", " + value.state + ", " + value.latLong.lat + ", " + value.latLong.lng + ");";
 ```
-At this point, the whole process can be considered to be workable.
-
-### Read Data from Previous Work(local file)
-To prepare my data for work on this assignment, I made three modifications. Thus, they could be an array. 
-1. `var addressList = '';` to `var addressList = []; `
-2. `.trim() + '\n'` to `.trim() + ','`
-3. `var array = addressList.split(',');`
-
-But the problem is that there is a blank line in the last row. I tried to use regular expression to eliminate it:
-```js
-function replaceBlank(){
-	var reg = /\n(\n)*( )*(\n)*\n/g;
-	var oldStr = $("#oldStr").val();
-	var newStr = oldStr.replace(reg,"\n");
-	$("#newStr").val(newStr);
-}
-```
-But it didn't work. I finally delete the last bank line manually. 
-In the end, make sure to synchronously read the entire contents of a file rather than using `fs.readFile()`, then successfully accomplished.
-```js
-var fs=require('fs');
-var file="./data/wa02_addressList.json";
-var result=JSON.parse(fs.readFileSync(file));
+But the result shows there is something wrong:
+```console
+ec2-user:~/environment $ node wa04b.js
+{ error: syntax error at or near "York"
+    ……} undefined
 ```
 
 #### Reference
 
 * [Node `querystring` module](https://nodejs.org/api/querystring.html)
-* [npm `async` module](http://caolan.github.io/async/)  
-* [npm `dotenv` module](https://www.npmjs.com/package/dotenv)
-* [JSON Arrays](https://www.w3schools.com/js/js_json_arrays.asp)
-* [JSON Objects](https://www.w3schools.com/js/js_json_objects.asp)
-* [Convert String to Array with JavaScript's split Method](https://www.dyn-web.com/javascript/strings/split.php)
-* [fs Read File](https://nodejs.org/api/fs.html#fs_fs_readfilesync_path_options)
-* [MDN JSON.stringify()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
