@@ -7,16 +7,16 @@ This week, I'm going to continue working with the data I scraped, parsed, and au
 I built a data model for the AA meetings data using ER diagrams. Following is the building process:
 1. I imitated the common thinking of locating an event or describing an event: "what meeting, when and where" or "when and where, there is a meeting of xxx". So I summarized 3 entities: Location, Time and Meetings.
 2. I sorted out all the content/data/variables from the website that I believe to be relevant, and categorized them into those three entities.
-    - Location: Longitude, Latitude, Building Name(partial), Street, Zone, Borough, City, State, Zip Code
-    - Time: Day, Start Time, End Time
-    - Meeting: Meeting Name(partial), Meeting Type, Special Interest
+    - Location: Longitude, Latitude, Building_name(has null values), Street, Zone, Borough, City, State, Zip_code
+    - Time: Day, Start_time, End_time
+    - Meeting: Meeting_name(has null values), Meeting_type, Special_interest
 So the hierarchy of the data would be:
 pic1
 
 3. I determined Primary Keys(PK) and Foreign Keys(FK) for each entity:
-    - Location: Location ID(PK), Meeting ID(FK), Longitude, Latitude, Building Name(partial), Street, Zone, Borough, City, State, Zip Code
-    - Time: Time ID (PK), Meeting ID(FK), Day, Start Time, End Time
-    - Meeting: Meeting ID(PK), Location ID(FK), Time ID(FK), Meeting Name, Meeting Type, Special Interest
+    - Location: Location_ID(PK), Meeting_ID(FK), Longitude, Latitude, Building_name(has null values), Street, Zone, Borough, City, State, Zip_code
+    - Time: Time_ID (PK), Meeting_ID(FK), Day, Start_time, End_time
+    - Meeting: Meeting_ID(PK), Location_ID(FK), Time_ID(FK), Meeting_name(has null values), Meeting_type, Special_interest
 4. Map relationships and the cardinality among entities. In other words, to illustrate the association between two entities.
 
 
