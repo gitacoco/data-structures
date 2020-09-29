@@ -34,13 +34,30 @@ In the beginning, I modified the starter code with my own situation —— to ad
 ```js
 var thisQuery = "INSERT INTO aalocations VALUES (E'" + value.address + "', " + value.city + ", " + value.state + ", " + value.latLong.lat + ", " + value.latLong.lng + ");";
 ```
-But the result shows there is something wrong:
+But the result showed that there was something wrong:
 ```console
 ec2-user:~/environment $ node wa04b.js
 { error: syntax error at or near "York"
     ……} undefined
 ```
+After consulting the documentation, I found that bescides `,`(comma), `\s`(blank space) is also one kind of the escape characters. So I expanded the coverage of the second single quotation mark of E to include another two identifiers:
+```js
+var thisQuery = "INSERT INTO aalocations VALUES (E'" + value.address + ", " + value.city + ", " + value.state + "', " + value.latLong.lat + ", " + value.latLong.lng + ");";
+```
+So far, so good. The results in console looked well. Then I use `var thisQuery = "SELECT * FROM aalocations;"` to query all of the contents in my database table and check my work.
+```console
+ec2-user:~/environment $ node wa04c.js
+null [ { address: '303 West 42nd Street, New York, NY',
+    city: '40.7575385',
+    state: '-73.9901368',
+    lat: null,
+    long: null },
+```
+Unfortunately, the result was not we want. Then I realized that I needed to put an E' in front of those three string, respectively, to avoid the SQL escaping the commas among name/value pairs in JSON. 
+```js
+var thisQuery = "INSERT INTO aalocations VALUES (E'" + value.address + "', E'" + value.city + "', E'" + value.state + "', " + value.latLong.lat + ", " + value.latLong.lng + ");";
+```
 
 #### Reference
 
-* [Node `querystring` module](https://nodejs.org/api/querystring.html)
+* [4.1.2.2. String Constants with C-style Escapes](https://www.postgresql.org/docs/13/sql-syntax-lexical.html)
