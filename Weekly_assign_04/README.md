@@ -26,11 +26,42 @@ In this step, I continued to use `pg` module to insert my AA data into the table
 
 ### Prepare the data file
 
-First of all, we need to make sure we have the correct number of rows in our JSON file, however, as I said last week, there is a blank line 
+First of all, we need to make sure we have the correct number of rows in our JSON file, however, as I said last week, there is a blank line in the last row. This week, I reconstruct my code and solved this issue.
+
+#### Code alternatives
+1. using .trim() method
+```js
+var addressList = '';                                           
+$('td[style="border-bottom:1px solid #e3e3e3; width:260px"] b')     
+    .each(function(i, elem){
+    addressList += $(elem.nextSibling.nextSibling).text().split(',')[0].split(/-|Rm/)[0].trim() + '\n';    
+});
+
+var array = addressList.trim().split('\n');
+fs.writeFileSync('data/addressList1.json', JSON.stringify(array));    
+```
+2. using .push() method
+```js
+var array = [];
+$('td[style="border-bottom:1px solid #e3e3e3; width:260px"] b').each(function(i, elem){
+    array.push($(elem.nextSibling.nextSibling).text().split(',')[0].split(/-|Rm/)[0].trim()); 
+});
+
+fs.writeFileSync('data/addressList.json', JSON.stringify(array));          
+```
+3. using .map() method
+```js
+var cheerio = require('cheerio');
+var array = $('td[style="border-bottom:1px solid #e3e3e3; width:260px"] b').map(function(i, elem) {
+  return $(elem.nextSibling.nextSibling).text().split(',')[0].split(/-|Rm/)[0].trim();
+});
+
+fs.writeFileSync('data/addressList.json', JSON.stringify(array));     
+```
 
 ### Problem solving while populating
 
-In the beginning, I modified the starter code with my own situation —— to add more columns:
+In this step, we're supposed to populate the database using the JSON data. In the beginning, I modified the starter code with my own situation —— to add more columns:
 ```js
 var thisQuery = "INSERT INTO aalocations VALUES (E'" + value.address + "', " + value.city + ", " + value.state + ", " + value.latLong.lat + ", " + value.latLong.lng + ");";
 ```
@@ -57,6 +88,8 @@ Unfortunately, the result that showed a dislocation was still not we want. Then 
 ```js
 var thisQuery = "INSERT INTO aalocations VALUES (E'" + value.address + "', E'" + value.city + "', E'" + value.state + "', " + value.latLong.lat + ", " + value.latLong.lng + ");";
 ```
+
+## Part Four: Check your work (finally)
 However, after I ran `wa04c.js` again, I found that the former contents were not covered automatically, which indicates that `INSERT INTO aalocations VALUES` will just add new rows below the previous ones. To solve this issue, I made a fresh start from `wa04a.js` to `wa04c.js` and get the proper result:
 ```console
 ec2-user:~/environment $ node wa04c.js
