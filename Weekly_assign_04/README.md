@@ -17,7 +17,7 @@ pic1
     - Location: Location ID(PK), Meeting ID(FK), Longitude, Latitude, Building Name(partial), Street, Zone, Borough, City, State, Zip Code
     - Time: Time ID (PK), Meeting ID(FK), Day, Start Time, End Time
     - Meeting: Meeting ID(PK), Location ID(FK), Time ID(FK), Meeting Name, Meeting Type, Special Interest
-4. To map relationships among entities. In other words, to illustrate the association between two entities.
+4. Map relationships and the cardinality among entities. In other words, to illustrate the association between two entities.
 
 
 
@@ -127,3 +127,4 @@ null [ { address: '303 West 42nd Street',
 * [String Constants with C-style Escapes](https://www.postgresql.org/docs/13/sql-syntax-lexical.html)
 * [Crow’s Foot Notation](https://www.vertabelo.com/blog/crow-s-foot-notation/)
 * [What is an Entity Relationship Diagram (ERD)?](https://www.lucidchart.com/pages/er-diagrams)
+* [Entity Relationship Diagram (ERD) Tutorial - Part 1](https://www.youtube.com/watch?time_continue=319&v=QpdhBUYk7Kk&feature=emb_logo)
