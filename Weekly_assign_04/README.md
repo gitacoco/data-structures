@@ -68,7 +68,7 @@ But the result showed that there was something wrong:
 ```console
 ec2-user:~/environment $ node wa04b.js
 { error: syntax error at or near "York"
-    ……} undefined
+    …} undefined
 ```
 After consulting the documentation, I found that bescides `,`(comma), `\s`(blank space) is also one kind of the escape characters. So I expanded the coverage of the second single quotation mark of E to include another two identifiers:
 ```js
