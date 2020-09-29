@@ -20,7 +20,7 @@ For the entity of Meeting, I intend to creat a composite key with two Foreign Ke
 
 4. Map relationships and the cardinality among entities. In other words, to illustrate the association between two entities.
 
-![Data Model]( )
+![Data Model](https://github.com/gitacoco/data-structures/blob/master/Weekly_assign_04/DataModel.png)
 
 ## Part Two: Create a table in my database
 
