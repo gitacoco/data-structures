@@ -5,7 +5,11 @@ This week, I'm going to continue working with the data I scraped, parsed, and au
 ## Part One: Plan
 
 I built a data model for the AA meetings data using Entity-Relationship Model. Following is the building process:
-1. xx
+1. I imitate the common thinking of locating an event or describing an event: "what meeting, when and where" or "when and where, there is a meeting of xxx". So I summarized 3 entities: Location, Time and Meetings.
+2. I sorted out all the content/data/variables from the website that I believe to be relevant, and categorized them into those three entities.
+- Location: Longitude, Latitude, Building Name (partial), Street, Zone, Borough, City, State, Zip Code
+- Time: Day, Start Time, End Time
+- Meeting: Meeting Type, Special Interest
 
 ## Part Two: Create a table in my database
 
