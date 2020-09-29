@@ -12,7 +12,7 @@ for (var i=1;i<11;i++){
     
     request(itemUrl, function(error, response, body){
     if (!error && response.statusCode == 200) { 
-        FileName="/home/ec2-user/environment/data/" + i + ",txt";
+        FileName="/home/ec2-user/environment/data/" + i + ".txt";
         fs.writeFileSync(FileName, body);
     }
     
