@@ -13,7 +13,7 @@ I built a data model for the AA meetings data using ER diagrams. Following is th
 So the hierarchy of the data would be:
 pic1
 
-3. I determined Primary Key(PK) and Foreign Key(FK) for each entity:
+3. I determined Primary Keys(PK) and Foreign Keys(FK) for each entity:
     - Location: Location ID(PK), Meeting ID(FK), Longitude, Latitude, Building Name(partial), Street, Zone, Borough, City, State, Zip Code
     - Time: Time ID (PK), Meeting ID(FK), Day, Start Time, End Time
     - Meeting: Meeting ID(PK), Location ID(FK), Time ID(FK), Meeting Name, Meeting Type, Special Interest
@@ -128,3 +128,4 @@ null [ { address: '303 West 42nd Street',
 * [Crow’s Foot Notation](https://www.vertabelo.com/blog/crow-s-foot-notation/)
 * [What is an Entity Relationship Diagram (ERD)?](https://www.lucidchart.com/pages/er-diagrams)
 * [Entity Relationship Diagram (ERD) Tutorial - Part 1](https://www.youtube.com/watch?time_continue=319&v=QpdhBUYk7Kk&feature=emb_logo)
+* [Entity Relationship Diagram (ERD) Tutorial - Part 2](https://www.youtube.com/watch?v=-CuY5ADwn24)
