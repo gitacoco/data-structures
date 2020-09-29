@@ -10,12 +10,14 @@ I built a data model for the AA meetings data using ER diagrams. Following is th
     - Location: Longitude, Latitude, Building_name(has null values), Street, Zone, Borough, City, State, Zip_code
     - Time: Day, Start_time, End_time
     - Meeting: Meeting_name(has null values), Meeting_type, Special_interest
+    
 So the hierarchy of the data would be three related Logical Tables at the logical layer and the relationship between an entity and its attributes in each table at the Physical Layer.
 
 3. I determined Primary Keys(PK) and Foreign Keys(FK) for each entity:
     - Location: Location_ID(PK), Time_ID(FK), Longitude, Latitude, Building_name(has null values), Street, Zone, Borough, City, State, Zip_code
     - Time: Time_ID (PK), Location_ID(FK), Day, Start_time, End_time
     - Meeting: Location_ID(PK, FK), Time_ID(PK, FK), Meeting_name(has null values), Meeting_type, Special_interest
+    
 For the entity of Meeting, I intend to creat a composite key with two Foreign Keys, because I think the meeting is unique at a specific location at the exact same time, which sounds mutual exclusive naturally. Actually, in the beginning, I added a PK for Meeting, which is Meeting_ID. But I just want to give a try by using a composite key.
 
 4. Map relationships and the cardinality among entities. In other words, to illustrate the association between two entities.
