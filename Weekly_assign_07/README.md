@@ -39,27 +39,37 @@ Here comes the results from my consule:
 1. the location table example
 
 ```JS
-  { meetingID: '62',
-    streetAddress: '139 West 31st Street',
-    buildingName: 'St. Francis of Assisi Education Center',
-    roomFloor: '3rd Floor',
-    city: 'New York',
-    state: 'NY',
-    zipCode: '10001',
-    detailsBox: 'No Meeting on Legal Holidays All meetings are non-smoking.' },
+    { meetingID: '62',
+        streetAddress: '139 West 31st Street',
+        buildingName: 'St. Francis of Assisi Education Center',
+        roomFloor: '3rd Floor',
+        city: 'New York',
+        state: 'NY',
+        zipCode: '10001',
+        detailsBox: 'No Meeting on Legal Holidays All meetings are non-smoking.' },
 ```
 
 2. the time table with type and special interest information example
 
 ```JS
-  { meetingID: '62',
-    streetAddress: '139 West 31st Street',
-    buildingName: 'St. Francis of Assisi Education Center',
-    roomFloor: '3rd Floor',
-    city: 'New York',
-    state: 'NY',
-    zipCode: '10001',
-    detailsBox: 'No Meeting on Legal Holidays All meetings are non-smoking.' },
+    { meetingID: '62',
+        day: 'Mondays',
+        startTime: '12:00 PM',
+        endTime: '1:00 PM',
+        meetingType: 'Closed Discussion meeting',
+        specialInterest: 'N/A' },
+    { meetingID: '62',
+        day: 'Wednesdays',
+        startTime: '12:00 PM',
+        endTime: '1:00 PM',
+        meetingType: 'Closed Discussion meeting',
+        specialInterest: 'N/A' },
+    { meetingID: '62',
+        day: 'Fridays',
+        startTime: '12:00 PM',
+        endTime: '1:00 PM',
+        meetingType: 'Closed Discussion meeting',
+        specialInterest: 'N/A' },
 ```
 
 ## Step 2 Geocode the data
