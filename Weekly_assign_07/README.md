@@ -49,7 +49,7 @@ Here comes the results from my consule:
     detailsBox: 'No Meeting on Legal Holidays All meetings are non-smoking.' },
 ```
 
-2. the time table with type and special interest information example
+2. the time table with type and special interest information example  
 Meeting ID here is the foreign key of the time table. And there would be a new attribute, which would be generated automatically in database management system, assigned for each time item as a primary key.
 ```JS
   { meetingID: '62',
