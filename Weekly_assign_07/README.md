@@ -32,7 +32,7 @@ In Weekly Assignment 2, I parsed limited addresses data in Zone 4 of AA meetings
 ```
 
 ### Parse the file
-loading……
+Need to be elaborated. Still under construction …
 
 ### Outcome
 Here comes the results from my consule:
