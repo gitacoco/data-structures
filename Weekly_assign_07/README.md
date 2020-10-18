@@ -32,7 +32,7 @@ In Weekly Assignment 2, I parsed limited addresses data in Zone 4 of AA meetings
 ```
 
 ### Parse the file
-The code please refer to [wa07_Parse.js](/wa07_Parse.js). The readme content meeds to be elaborated and is still under construction …
+The code please refer to [wa07_Parse.js](https://github.com/gitacoco/data-structures/blob/master/Weekly_assign_07/wa07_Parse.js). The readme content meeds to be elaborated and is still under construction …
 
 ### Outcome
 Here comes the results from my consule:
