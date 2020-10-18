@@ -7,6 +7,7 @@ Finish parsing and cleaning the rest of the data in "zone 4" and all other zones
 In Weekly Assignment 2, I parsed limited addresses data in Zone 4 of AA meetings. In this step, I will parse the rest of the data in [4.txt](/Weekly_assign_01/data/4.txt).
 
 ### HTML Structure
+```HTML
 <table>
     <table>
         <table>
@@ -28,6 +29,7 @@ In Weekly Assignment 2, I parsed limited addresses data in Zone 4 of AA meetings
         </table>
     </table>
 </table>
+```
 
 ### Parse the file
 loading……
@@ -35,7 +37,8 @@ loading……
 ### Outcome
 Here comes the results from my consule:
 1. the location table example
-```JSON
+
+```JS
   { meetingID: '62',
     streetAddress: '139 West 31st Street',
     buildingName: 'St. Francis of Assisi Education Center',
@@ -47,7 +50,8 @@ Here comes the results from my consule:
 ```
 
 2. the time table with type and special interest information example
-```JSON
+
+```JS
   { meetingID: '62',
     streetAddress: '139 West 31st Street',
     buildingName: 'St. Francis of Assisi Education Center',
