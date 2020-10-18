@@ -64,8 +64,6 @@ Here comes the results from my consule:
 
 ## Step 2 Geocode the data
 
-## Step 3
-### Replace the table
+## Step 3 Replace the table
 
-## Step 4
-### Other zones together
+## Step 4 Other zones together
