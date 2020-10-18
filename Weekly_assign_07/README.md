@@ -38,7 +38,7 @@ loading……
 Here comes the results from my consule:
 1. the location table example
 
-```JSON
+```JS
   { meetingID: '62',
     streetAddress: '139 West 31st Street',
     buildingName: 'St. Francis of Assisi Education Center',
@@ -51,7 +51,7 @@ Here comes the results from my consule:
 
 2. the time table with type and special interest information example
 
-```JSON
+```JS
   { meetingID: '62',
     streetAddress: '139 West 31st Street',
     buildingName: 'St. Francis of Assisi Education Center',
