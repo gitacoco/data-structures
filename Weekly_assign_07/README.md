@@ -87,7 +87,7 @@ Meeting ID here is the foreign key of the time table. And there would be a new a
 
 #### Teamwork: Other Zones Together
 
-I contributed the code [wa07_Parse.js](https://github.com/gitacoco/data-structures/blob/master/Weekly_assign_07/wa07_Parse.js) as the base code. So far so good, and this code works for my zone, but may not for each zone. [Lee Kuczewski](https://github.com/leeallennyc/data-structures-fall-2020/tree/master/week7) then did a lot adaptation work and built massive exceptions, especially for the address data, to ensure the code could work for all other zones. The whole data we parsed please refer to [Lee's repository](https://github.com/leeallennyc/data-structures-fall-2020/tree/master/week7/data).
+I contributed the code [wa07_Parse.js](https://github.com/gitacoco/data-structures/blob/master/Weekly_assign_07/wa07_Parse.js) as the base code. So far so good, and this code works for my zone, but may not for each zone. [Lee Kuczewski](https://github.com/leeallennyc/data-structures-fall-2020/tree/master/week7) then did a lot adaptation work and built massive exceptions, especially for the address data, to ensure the code could work for all other zones. The whole data he parsed please refer to [Lee's repository](https://github.com/leeallennyc/data-structures-fall-2020/tree/master/week7/data).
 
 #### External Reference Library for Exceptions
 
