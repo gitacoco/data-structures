@@ -102,7 +102,7 @@ Example Code:
     string_list[0] = "west"
 ```
 
-#### Some Thoughts of the Exceptions and Data Integrity
+#### Some Thoughts on the Exceptions and Data Integrity
 
 What is the border of data cleaning? What is the bottom line of data integrity? Do we have to standardize all the data in a UGC meeting information sharing platform (I assume AA Meeting is UGC)?
 
@@ -111,10 +111,10 @@ Take Google Calendar as an example, anyone could invite me to join an event. Let
 2. The **time** is determined by users in limited freedom. You cannot type something. The only thing you can do is to pick a day and/or a time slot in their ‘prefabricated components’.
 3. For the **address** information, the blank(you need to fill in) is an input box as well as a search engine. They have features like computer-assisted address association and map-based localization to help your data in good order. However, if you just want to input something in a mess, they won't interfere you.
 
-I think the freedom ranking of these three types of information input is 1>3>2, and the level of consistency tends to be 2>3>1. Apparently, the strategies towards the management of different data types should depend on something(I have no idea so far). At least, more strict does not necessarily mean better. This shoud be case by case.
+I think the ranking of freedom of these three information input mechanisms is 1>3>2, and the level of data consistency tends to be 2>3>1. Apparently, the strategies towards the management of different data types should depend on something(I have no idea so far). At least, more strict does not necessarily mean better. This is supposed to be case by case.
 
 ### Step 2 Geocoding the Data (under construction, won't be delivered before week8's class )
 
 ### Step 3 Populate the Database (under construction, won't be delivered before week8's class )
 
-### Debugging and Lesson Learned
+### Debugging and Lesson Learned (under construction, won't be delivered before week8's class )
