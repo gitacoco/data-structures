@@ -32,32 +32,38 @@ In Weekly Assignment 2, I parsed limited addresses data in Zone 4 of AA meetings
     </table>
 </table>
 ```
+#### Determining the Data Model
+
+I continue to use the data model that I created in [weekly assignment 4](https://github.com/gitacoco/data-structures/tree/master/Weekly_assign_04). So there will be two tables: `Location List` and `Time List`. And we can rely on the composite key to extract meeting information efficiently.
 
 #### Parsing the file
-The code please refer to [wa07_Parse.js](https://github.com/gitacoco/data-structures/blob/master/Weekly_assign_07/wa07_Parse.js). The readme content meeds to be elaborated and is still under construction …
 
-#### Establishing an external JSON reference library for exceptions
-![Code Example](/Weekly_assign_07/process_image/exclibrary.png)
+The code please refer to [wa07_Parse.js](https://github.com/gitacoco/data-structures/blob/master/Weekly_assign_07/wa07_Parse.js). The basic workflow: 
+1. I defined two parallel arrays: `var locationList = [];` and `var timeList = [];`
+2. Navigate to our target HTML tags. **There is a hateful pitfall here!** When I was examining the HTML file, I found there is only one pair of `<tbody></tbody>` tag. So I wrote `$('tbody tr')` in the selector. When I finished my code, it did not work at all. I started the tough voyage of debugging. I printed each step reversely, finally found the problems is from this step. **There are two pairs of invisible `<tbody></tbody>`. This would be elaborated in the last part of this documentation.
+3. Run an each function to parse the address data.
+4. Run an nested each function to parse the time data.
 
+#### Outcome of Zone 4
+Here comes the results from my console:
 
-#### Outcome of Zone 4 (my assigned zone)
-Here comes the results from my consule:
 1. **the location table example**
 
 ```JS
-  { meetingID: '62',
-    streetAddress: '139 West 31st Street',
-    buildingName: 'St. Francis of Assisi Education Center',
-    roomFloor: '3rd Floor',
+{ meetingID: '302',
+    streetAddress: '484 West 43rd Street',
+    buildingName: 'Manhattan Plaza Health Club',
+    roomFloor: '1st Floor',
     city: 'New York',
     state: 'NY',
-    zipCode: '10001',
-    detailsBox: 'No Meeting on Legal Holidays All meetings are non-smoking.' },
+    zipCode: '10036',
+    detailsBox: 'Fri=Living Sober, Sat=Promises',
+    wheelChair: true },
 ```
 
 2. **the time table with type and special interest information example**
 
-Meeting ID here is the foreign key of the time table. And there would be a new attribute, which would be generated automatically in database management system, assigned for each time item as a primary key.
+Meeting ID here is the foreign key of the time table. And there would be a new attribute, which would be generated automatically in database management systems, assigned for each time item as a primary key.
 ```JS
   { meetingID: '62',
     day: 'Mondays',
@@ -79,10 +85,36 @@ Meeting ID here is the foreign key of the time table. And there would be a new a
     specialInterest: 'N/A' },
 ```
 
-#### Other Zones Together
+#### Teamwork: Other Zones Together
 
-### Step 2 Geocoding the Data
+I contributed the code [wa07_Parse.js](https://github.com/gitacoco/data-structures/blob/master/Weekly_assign_07/wa07_Parse.js) as the base code. So far so good, and this code works for my zone, but may not for each zone. [Lee Kuczewski](https://github.com/leeallennyc/data-structures-fall-2020/tree/master/week7) then did a lot adaptation work and built massive exceptions, especially for the address data, to ensure the code could work for all other zones. The whole data we parsed please refer to [Lee's repository](https://github.com/leeallennyc/data-structures-fall-2020/tree/master/week7/data).
 
-### Step 3 Building the Database
+#### External Reference Library for Exceptions
+
+To avoid excessive exceptions in the JavasScript file, we could establish an external reference library through JSON format. This could strip rules from JS code. And then the readability of the JS file and the maintainability of the rules will be better. (This is a strategy for optimization with a low priority)
+
+Example Code:
+```JS
+  var west = ["W.", "W", "WEST"]
+  var string = "W. Street"
+  var string_list = string.split(" ")
+  if (west.indexOf(string_list[0]) >=0)
+    string_list[0] = "west"
+```
+
+#### Some Thoughts of the Exceptions and Data Integrity
+
+What is the border of data cleaning? What is the bottom line of data integrity? Do we have to standardize all the data in a UGC meeting information sharing platform (I assume AA Meeting is UGC)?
+
+Take Google Calendar as an example, anyone could invite me to join an event. Let's take a closer look at the event-creating panel. 
+1. The **meeting name** is totally written by users. 
+2. The **time** is determined by users in limited freedom. You cannot type something. The only thing you can do is to pick a day and/or a time slot in their ‘prefabricated components’.
+3. For the **address** information, the blank(you need to fill in) is an input box as well as a search engine. They have features like computer-assisted address association and map-based localization to help your data in good order. However, if you just want to input something in a mess, they won't interfere you.
+
+I think the freedom ranking of these three types of information input is 1>3>2, and the level of consistency tends to be 2>3>1. Apparently, the strategies towards the management of different data types should depend on something(I have no idea so far). At least, more strict does not necessarily mean better. This shoud be case by case.
+
+### Step 2 Geocoding the Data (under construction, won't be delivered before week8's class )
+
+### Step 3 Populate the Database (under construction, won't be delivered before week8's class )
 
 ### Debugging and Lesson Learned

@@ -38,7 +38,7 @@ var locationList = [];
         // Accessible Facility
         var wheelChair;
         
-        if ($(elem).text().includes('span')){
+        if ($(elem).html().includes('span')){
             wheelChair = true;
         } else {
             wheelChair = false;
@@ -53,6 +53,7 @@ var locationList = [];
             state: "NY",
             zipCode: zipCode,
             detailsBox: detailsBox,
+            wheelChair: wheelChair,
         };
         
         locationList.push(meetingLocation);
