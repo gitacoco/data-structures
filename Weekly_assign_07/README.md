@@ -37,7 +37,7 @@ In Weekly Assignment 2, I parsed limited addresses data in Zone 4 of AA meetings
 The code please refer to [wa07_Parse.js](https://github.com/gitacoco/data-structures/blob/master/Weekly_assign_07/wa07_Parse.js). The readme content meeds to be elaborated and is still under construction …
 
 #### Establishing an external JSON reference library for exceptions
-![Code Example](/process_image/exclibrary.png)
+![Code Example](/Weekly_assign_07/process_image/exclibrary.png)
 
 
 #### Outcome of Zone 4 (my assigned zone)
