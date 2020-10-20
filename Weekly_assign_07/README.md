@@ -2,11 +2,13 @@
 
 Finish parsing and cleaning the rest of the data in "zone 4" and all other zones, and update/replace my PostgreSQL table(s) with the new data. This would include **all the data** I may need for the final map in Final Assignment 1.
 
-## Step 1 [Finished]
+## Workflow
+
+### Step 1 Parsing the HTML File
 
 In Weekly Assignment 2, I parsed limited addresses data in Zone 4 of AA meetings. In this step, I will parse the rest of the data in [4.txt](/Weekly_assign_01/data/4.txt).
 
-### HTML Structure
+#### Examining the HTML Structure
 ```HTML
 <table>
     <table>
@@ -31,10 +33,14 @@ In Weekly Assignment 2, I parsed limited addresses data in Zone 4 of AA meetings
 </table>
 ```
 
-### Parse the file
+#### Parsing the file
 The code please refer to [wa07_Parse.js](https://github.com/gitacoco/data-structures/blob/master/Weekly_assign_07/wa07_Parse.js). The readme content meeds to be elaborated and is still under construction …
 
-### Outcome
+#### Establishing an external JSON reference library for exceptions
+![Code Example](/process_image/exclibrary.png)
+
+
+#### Outcome of Zone 4 (my assigned zone)
 Here comes the results from my consule:
 1. **the location table example**
 
@@ -73,8 +79,10 @@ Meeting ID here is the foreign key of the time table. And there would be a new a
     specialInterest: 'N/A' },
 ```
 
-## Step 2 Geocode the data
+#### Other Zones Together
 
-## Step 3 Replace the table
+### Step 2 Geocoding the Data
 
-## Step 4 Other zones together
+### Step 3 Building the Database
+
+### Debugging and Lesson Learned
