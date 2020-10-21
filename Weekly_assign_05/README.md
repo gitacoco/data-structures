@@ -6,7 +6,7 @@ We need to generate the raw data for the "Process Blog" project (the data source
 
 ### Data Model
 
-Different from the SQL database, the data is loosely organized in NoSQL database. When we want to extract the data from the database, the query is not based on joins among tables, but the relationship of 'key-value'. The level of structure, binding and coupling in NoSQL database are lower than SQL. So the rows in a table in SQL database actually are similar to items in NoSQL database, but the content in each item can be more flexible.
+Different from the SQL database, the data is loosely organized in NoSQL database. When we extract the data from the database, the query is not based on joins among tables, but the relationship of 'key-value'. The level of structure, binding and coupling in NoSQL database are lower than SQL. So the rows in a table in SQL database actually are similar to items in NoSQL database, but the content in each item can be more flexible.
 
 ![Image of database](./datamodel.jpeg)
 
