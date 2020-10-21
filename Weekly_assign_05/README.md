@@ -1,6 +1,6 @@
 # Weekly Assignment 5
 
-We need to generate the raw data for the "Process Blog" project (the data source for [Final Assignment 2](https://github.com/visualizedata/data-structures/blob/master/final_assignment_2.md)). This week, we are basically establish the template for our data.
+We need to generate the raw data for the "Process Blog" project (the data source for [Final Assignment 2](https://github.com/visualizedata/data-structures/blob/master/final_assignment_2.md)). This week, we basically established the template for our data.
 
 ## Process
 
