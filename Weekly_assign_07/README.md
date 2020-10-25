@@ -90,7 +90,7 @@ Meeting ID here is the foreign key of the time table. And there would be a new a
 To avoid excessive exceptions in the JavasScript file, we could establish an external reference library through JSON format. This could strip rules from JS code. And then the readability of the JS file and the maintainability of the rules will be better. (This is a strategy for optimization with a low priority)
 
 Example Code:
-The configration file:
+The configuration file:
 ```JSON
 [
   {"from": ["St", "St."],"to": "Street"},
@@ -120,7 +120,39 @@ Here comes the corresponding code. This version is only available for strings bu
         var address = address_stringlist.join(" ").trim(); //to joins all elements of an array into a string. the separator here is a space
 ```
 
-- Some Thoughts on the Exceptions and Data Integrity
+#### Other Zones One by One
+
+> it's wise to approach them all as ten separate zones, not try to do all of that in the same script but then leads to disparate JSON files to all bring back together. ———— Aaron Hill
+
+I contributed the code [wa07_Parse.js](https://github.com/gitacoco/data-structures/blob/master/Weekly_assign_07/wa07_Parse.js) as the base code. So far so good, and this code works for my zone, but may not for each zone. [Lee Kuczewski](https://github.com/leeallennyc/data-structures-fall-2020/tree/master/week7) then did a lot adaptation work and built massive exceptions, especially for the address data, to ensure the code could work for all other zones. The whole data he parsed please refer to [Lee's repository](https://github.com/leeallennyc/data-structures-fall-2020/tree/master/week7/data).
+
+### Step 2 Stitching All Ten Zones Together
+
+[Lee Kuczewski](https://github.com/leeallennyc/data-structures-fall-2020/tree/master/week7) contributes the following code to merge all individual zones together:
+```JS
+"use strict"
+// dependencies
+const fs = require('fs'),
+      querystring = require('querystring'),
+      request = require('request'),
+      async = require('async'),
+      dotenv = require('dotenv'),
+      path = require('path');
+// Combining Location Lists
+var filenamesLocation = fs.readdirSync(`${__dirname}/data/locationLists`);
+for (let i = 0; i<filenamesLocation.length; i++){
+    var mergedLocations = JSON.parse(fs.readFileSync(`${__dirname}/data/locationLists/${filenamesLocation[i]}`));
+    console.log(mergedLocations);
+};
+```
+
+### Step 2 Geocoding the Data 
+
+### Step 3 Populate the Database
+
+### Thoughts, Debugging and Lesson Learned
+
+1. Some Thoughts on the Exceptions and Data Integrity
 
 What is the border of data cleaning? What is the bottom line of data integrity? Do we have to standardize all the data in a UGC meeting information sharing platform (I assume AA Meeting is UGC)?
 
@@ -130,15 +162,3 @@ Take Google Calendar as an example, anyone could invite me to join an event. Let
 3. For the **address** information, the blank(you need to fill in) is an input box as well as a search engine. They have features like computer-assisted address association and map-based localization to help your data in good order. However, if you just want to input something in a mess, they won't interfere you.
 
 I think the ranking of freedom of these three information input mechanisms is 1>3>2, and the level of data consistency tends to be 2>3>1. Apparently, the strategies towards the management of different data types should depend on something(I have no idea so far). At least, more strict does not necessarily mean better. This is supposed to be case by case.
-
-#### Other Zones One by One
-
-I contributed the code [wa07_Parse.js](https://github.com/gitacoco/data-structures/blob/master/Weekly_assign_07/wa07_Parse.js) as the base code. So far so good, and this code works for my zone, but may not for each zone. [Lee Kuczewski](https://github.com/leeallennyc/data-structures-fall-2020/tree/master/week7) then did a lot adaptation work and built massive exceptions, especially for the address data, to ensure the code could work for all other zones. The whole data he parsed please refer to [Lee's repository](https://github.com/leeallennyc/data-structures-fall-2020/tree/master/week7/data).
-
-### Step 2 Stitching All Ten Zones Together
-
-### Step 2 Geocoding the Data 
-
-### Step 3 Populate the Database
-
-### Debugging and Lesson Learned
