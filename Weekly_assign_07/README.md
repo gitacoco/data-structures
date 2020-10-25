@@ -166,13 +166,13 @@ But the thing is, in the merged file, each zone is still wrapped in its own arra
 
 ### Step 2 Geocoding the Data 
 
-1. Alternative 1: Geocoding while Parsing
+#### Alternative 1: Geocoding while Parsing
 
 I tested a way to parse the data and geocode it simultaneously. It really works. But I'll still geocode the data after I get all the cleaned data because I can check the data first before geocoding and ensure that the data is clean enough.
 
 ![image of tesing](./geocodingtest.png)
 
-2. Alternative 2: Geocoding after Parsing
+#### Alternative 2: Geocoding after Parsing
 
 ### Step 3 Populate the Database
 
