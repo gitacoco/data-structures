@@ -33,7 +33,7 @@ $("tbody tbody tbody tr").each(function (i, elem) {
         //to select each inconsistent spelled word. forEach function here will iterater each word in the "from" array
         for (let i = 0; i < address_stringlist.length; i++) {
             //to use for loops comparing the word in address_stringlist with the word from "from" array in the configuration file one by one
-            if (eachFrom.indexOf(address_stringlist[i]) >= 0) {
+            if (eachFrom === address_stringlist[i]) {
             //if not matched, the value would be -1, this word would be skipped. if matched, the value would large than 0, then
             address_stringlist[i] = eachRule.to; //assign the value in "to" attribute to the word
             }
@@ -48,12 +48,9 @@ $("tbody tbody tbody tr").each(function (i, elem) {
 
     rule.forEach(function (eachRule) {
         eachRule.from.forEach(function (eachFrom) {
-        if (roomFloor_stringlist.length > 1) {
-            // I add this statement since if there is no content, the field will be filled with the first rule. I don't know why
-            for (let i = 0; i < roomFloor_stringlist.length; i++) {
-            if (eachFrom.indexOf(roomFloor_stringlist[i]) >= 0) {
+        for (let i = 0; i < roomFloor_stringlist.length; i++) {
+            if (eachFrom === roomFloor_stringlist[i]) {
                 roomFloor_stringlist[i] = eachRule.to;
-            }
             }
         }
         });
