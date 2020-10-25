@@ -3,7 +3,7 @@
 var fs = require("fs");
 var cheerio = require("cheerio");
 
-var content = fs.readFileSync("data/4.txt");
+var content = fs.readFileSync("raw_data/4.txt");
 var $ = cheerio.load(content);
 
 //const rule = require("./replace_rules.json"); // to introduce the configuration file
