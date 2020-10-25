@@ -120,12 +120,17 @@ var params = {
 No objects returned, but 'Query succeeded.'.
 
 - the SECOND round
-I searched some discussions on querying ISO data in DynamoDB, and an AWS DynamoDB Specialist says: >If you store the date in ISO 8601 using a string data type, you can perform date range queries in DynamoDB. If you need to perform between two date attributes, you will need to use a FilterExpression:
+
+I searched some discussions on querying ISO data in DynamoDB, and an AWS DynamoDB Specialist says: 
+>If you store the date in ISO 8601 using a string data type, you can perform date range queries in DynamoDB. If you need to perform between two date attributes, you will need to use a FilterExpression:
 `FilterExpression: “start_date BETWEEN :date1 and :date2”`
-However, when I looked up the documentation, it says: >A filter expression cannot contain partition key or sort key attributes. You need to specify those attributes in the key condition expression, not the filter expression.
+
+However, when I looked up the documentation, it says: 
+>A filter expression cannot contain partition key or sort key attributes. You need to specify those attributes in the key condition expression, not the filter expression.
 In my case, my sort key is the date. So I cannot use a FilterExpression to filter the date range. I think I have no way out.
 
-- the SECOND round
+- the Third round
+
 I revised my strategy: to tentatively query a specific day. So:
 ```javascript
 var params = {
@@ -156,7 +161,8 @@ var params = {
 ```
 This time, I successfully got the correct object. But my question is why I need to strictly use the "Sun Oct 18 2020" to query the date. Not to mention that I store the date use the format "2020-10-20". And how to prevent DynamoDB from converting my date format?
 
-- the Third round
+- the Final round
+
 Based on the result of the second round, I tried to use `KeyConditionExpression` to query the date range.
 
 ```javascript
