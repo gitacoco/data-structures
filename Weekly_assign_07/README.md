@@ -141,7 +141,7 @@ Here comes the corresponding code. This version is only available for strings bu
 
 > it's wise to approach them all as ten separate zones, not try to do all of that in the same script but then leads to disparate JSON files to all bring back together. ———— Aaron Hill
 
-Currently, we need to manually revise the target zone's number to parse it one by one. But for all zone, we use a consistent rule file. My work flow is to parse all ten zones, merge them together in one file respectively for location and time and then geocode the location data.
+Currently, we need to manually revise the target zone's number to parse it one by one. But for all zone, we use a consistent rule file. My work flow is to parse my zone first, continue to parse all other zones individually and supplement the rules at the same time, merge them together in one file respectively for location and time data, and then geocode the location data.
 
 ### Step 2 Stitching All Ten Zones Together
 
