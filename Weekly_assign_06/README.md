@@ -35,7 +35,7 @@ client.query(thisQuery, (err, res) => {
     }
 });
 ```
-The result from my consle:
+The result from my console:
 
 address | city | state | lat | long             
 -------------------- | -------- | ----- | ---------------- | -----------------
@@ -47,3 +47,8 @@ address | city | state | lat | long
 4 West 43rd Street | New York | NY | 40.7543885 | -73.9812083      
 134 West 29th Street | New York | NY | 40.7472463 | -73.9917061      
 446 West 33rd Street | New York | NY | 40.753496 | -73.9989428      
+
+### Reference
+[Operators in The WHERE Clause](https://www.w3schools.com/sql/sql_where.asp)
+
+## Part Two: Write and execute a query for your AA data PostgreSQL
