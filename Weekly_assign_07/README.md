@@ -85,24 +85,42 @@ Meeting ID here is the foreign key of the time table. And there would be a new a
     specialInterest: 'N/A' },
 ```
 
-#### Teamwork: Other Zones Together
-
-I contributed the code [wa07_Parse.js](https://github.com/gitacoco/data-structures/blob/master/Weekly_assign_07/wa07_Parse.js) as the base code. So far so good, and this code works for my zone, but may not for each zone. [Lee Kuczewski](https://github.com/leeallennyc/data-structures-fall-2020/tree/master/week7) then did a lot adaptation work and built massive exceptions, especially for the address data, to ensure the code could work for all other zones. The whole data he parsed please refer to [Lee's repository](https://github.com/leeallennyc/data-structures-fall-2020/tree/master/week7/data).
-
 #### External Reference Library for Exceptions
 
 To avoid excessive exceptions in the JavasScript file, we could establish an external reference library through JSON format. This could strip rules from JS code. And then the readability of the JS file and the maintainability of the rules will be better. (This is a strategy for optimization with a low priority)
 
 Example Code:
+The configration file:
+```JSON
+[
+  {"from": ["St", "St."],"to": "Street"},
+  {"from": ["W.", "west"],"to": "West"},
+  {"from": ["FL.", "Fl.", "floor"],"to": "Floor"},
+  {"from": ["(Room"],"to": "Room"},
+  {"from": ["."],"to": " "}
+]
+```
+Here comes the corresponding code. This version is only available for strings but not regular expressions.
 ```JS
-  var west = ["W.", "W", "WEST"]
-  var string = "W. Street"
-  var string_list = string.split(" ")
-  if (west.indexOf(string_list[0]) >=0)
-    string_list[0] = "west"
+ const rule = require("./replace_rules.json");   // to introduce the configuration file
+        
+        var _address = $(elem).find('b')[0].nextSibling.nextSibling // to navigate our target parsing location. the same way as before
+        var address_string = $(_address).text().split(',')[0].split(/-|Rm/)[0].trim() //to roughly get the address with some inconsistent spelled words
+        var address_stringlist = address_string.split(" ") //to break down the address into single words and store them in array
+        
+        rule.forEach(function(eachRule){                   //to select each rule in the configuration file. forEach function here will iterater each rule 
+            eachRule.from.forEach(function(eachFrom){      //to select each inconsistent spelled word. forEach function here will iterater each word in the "from" array 
+                for (let i = 0; i < address_stringlist.length; i ++){ //to use for loops comparing the word in address_stringlist with the word from "from" array in the configuration file one by one
+                if(eachFrom.indexOf(address_stringlist[i]) >= 0){ //if not matched, the value would be -1, this word would be skipped. if matched, the value would large than 0, then
+                    address_stringlist[i] = eachRule.to //assign the value in "to" attribute to the word
+                }
+              }    
+            })
+        })
+        var address = address_stringlist.join(" ").trim(); //to joins all elements of an array into a string. the separator here is a space
 ```
 
-#### Some Thoughts on the Exceptions and Data Integrity
+- Some Thoughts on the Exceptions and Data Integrity
 
 What is the border of data cleaning? What is the bottom line of data integrity? Do we have to standardize all the data in a UGC meeting information sharing platform (I assume AA Meeting is UGC)?
 
@@ -113,8 +131,14 @@ Take Google Calendar as an example, anyone could invite me to join an event. Let
 
 I think the ranking of freedom of these three information input mechanisms is 1>3>2, and the level of data consistency tends to be 2>3>1. Apparently, the strategies towards the management of different data types should depend on something(I have no idea so far). At least, more strict does not necessarily mean better. This is supposed to be case by case.
 
-### Step 2 Geocoding the Data (under construction, won't be delivered before week8's class )
+#### Other Zones One by One
 
-### Step 3 Populate the Database (under construction, won't be delivered before week8's class )
+I contributed the code [wa07_Parse.js](https://github.com/gitacoco/data-structures/blob/master/Weekly_assign_07/wa07_Parse.js) as the base code. So far so good, and this code works for my zone, but may not for each zone. [Lee Kuczewski](https://github.com/leeallennyc/data-structures-fall-2020/tree/master/week7) then did a lot adaptation work and built massive exceptions, especially for the address data, to ensure the code could work for all other zones. The whole data he parsed please refer to [Lee's repository](https://github.com/leeallennyc/data-structures-fall-2020/tree/master/week7/data).
 
-### Debugging and Lesson Learned (under construction, won't be delivered before week8's class )
+### Step 2 Stitching All Ten Zones Together
+
+### Step 2 Geocoding the Data 
+
+### Step 3 Populate the Database
+
+### Debugging and Lesson Learned
