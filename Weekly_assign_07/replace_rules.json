@@ -1,6 +1,7 @@
 [
-    {"from": ["St", "St."],"to": "Street"},
+    {"from": ["St", "St.","street"],"to": "Street"},
     {"from": ["W.", "west"],"to": "West"},
+    {"from": ["EAST"],"to": "Eest"},
     {"from": ["FL.", "Fl.", "floor"],"to": "Floor"},
     {"from": ["(Room"],"to": "Room"},
     {"from": ["."],"to": " "}
