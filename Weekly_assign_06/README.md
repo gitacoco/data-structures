@@ -53,6 +53,7 @@ address | city | state | lat | long
 
 ## Part Two: Query DynamoDB
 
+![Image of DynamoDB](./table.png)
 For this query, I plan to retrieve the items on no-class days and between 2020-10-20 and 2020-10-25. However, I failed to make the query. Then I turned to make a query for a specific date as a compromise plan.
 
 ```javascript
@@ -121,11 +122,11 @@ No objects returned, but 'Query succeeded.'.
 
 - the SECOND round
 
-I searched some discussions on querying ISO data in DynamoDB, and an AWS DynamoDB Specialist says: 
+I searched some discussions on querying ISO data in DynamoDB, and an [AWS DynamoDB Specialist](https://www.abhayachauhan.com/2017/12/how-to-store-dates-or-timestamps-in-dynamodb/) says: 
 >If you store the date in ISO 8601 using a string data type, you can perform date range queries in DynamoDB. If you need to perform between two date attributes, you will need to use a FilterExpression:
 `FilterExpression: “start_date BETWEEN :date1 and :date2”`
 
-However, when I looked up the documentation, it says: 
+However, when I looked up the [documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Query.html#Query.FilterExpression), it says: 
 >A filter expression cannot contain partition key or sort key attributes. You need to specify those attributes in the key condition expression, not the filter expression.
 In my case, my sort key is the date. So I cannot use a FilterExpression to filter the date range. I think I have no way out.
 
