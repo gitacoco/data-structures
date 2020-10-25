@@ -37,16 +37,18 @@ client.query(thisQuery, (err, res) => {
 ```
 The result from my console:
 
-address | city | state | lat | long             
--------------------- | -------- | ----- | ---------------- | -----------------
-305 7th Avenue | New York | NY | 40.7467107 | -73.9935208      
-441 West 26th Street | New York | NY | 40.7495486 | -74.0015106      
-211 West 30th Street | New York | NY | 40.7486793956479 | -73.9927286472649
-307 West 26th Street | New York | NY | 40.7474685 | -73.9974137      
-446 West 33rd Street | New York | NY | 40.753496 | -73.9989428      
-4 West 43rd Street | New York | NY | 40.7543885 | -73.9812083      
-134 West 29th Street | New York | NY | 40.7472463 | -73.9917061      
-446 West 33rd Street | New York | NY | 40.753496 | -73.9989428      
+```console
+address               city      state  lat               long             
+--------------------  --------  -----  ----------------  -----------------
+305 7th Avenue        New York  NY     40.7467107        -73.9935208      
+441 West 26th Street  New York  NY     40.7495486        -74.0015106      
+211 West 30th Street  New York  NY     40.7486793956479  -73.9927286472649
+307 West 26th Street  New York  NY     40.7474685        -73.9974137      
+446 West 33rd Street  New York  NY     40.753496         -73.9989428      
+4 West 43rd Street    New York  NY     40.7543885        -73.9812083      
+134 West 29th Street  New York  NY     40.7472463        -73.9917061      
+446 West 33rd Street  New York  NY     40.753496         -73.9989428        
+```
 
 ### Reference
 [Operators in The WHERE Clause](https://www.w3schools.com/sql/sql_where.asp)
