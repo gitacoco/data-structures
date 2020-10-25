@@ -85,7 +85,7 @@ Meeting ID here is the foreign key of the time table. And there would be a new a
     specialInterest: 'N/A' },
 ```
 
-#### External Reference Library for Exceptions
+#### External Reference File for Exceptions
 
 To avoid excessive exceptions in the JavasScript file, we could establish an external reference library through JSON format. This could strip rules from JS code. And then the readability of the JS file and the maintainability of the rules will be better. (This is a strategy for optimization with a low priority)
 
@@ -93,11 +93,28 @@ Example Code:
 The configuration file:
 ```JSON
 [
-  {"from": ["St", "St."],"to": "Street"},
-  {"from": ["W.", "west"],"to": "West"},
+  {"from": ["St", "St.","STREET","Street."],"to": "Street"},
+  {"from": ["Blvd."],"to": "Blvd"},
+  {"from": ["W.", "W", "west"],"to": "West"},
+  {"from": ["E", "E.", "EAST"],"to": "East"},
+  {"from": ["37TH"],"to": "37th"},
+  {"from": ["@", "&"],"to": "and"},
+  {"from": ["West165th"],"to": "West 165th"},
+  {"from": ["Church.","Church)"],"to": "Church"},
+  {"from": ["thru"],"to": "through"},
+  {"from": ["NY","\n\t\t\t\t\t\tNY"],"to": " "},
+  {"from": ["(Basement)"],"to": " "},
+  {"from": ["Basment","basement."],"to": "Basement"},
+  {"from": ["(Red Door"],"to": " "},
   {"from": ["FL.", "Fl.", "floor"],"to": "Floor"},
-  {"from": ["(Room"],"to": "Room"},
-  {"from": ["."],"to": " "}
+  {"from": ["(Room","room."],"to": "Room"},
+  {"from": ["rear.","rear"],"to": "Rear"},
+  {"from": ["."],"to": " "},
+  {"from": ["(2nd"],"to": "2nd"},
+  {"from": ["Door)"],"to": "Door"},
+  {"from": ["(In"],"to": "In"},
+  {"from": ["gym)"],"to": "Gym"},
+  {"from": ["event"],"to": "Event"}
 ]
 ```
 Here comes the corresponding code. This version is only available for strings but not regular expressions.
@@ -105,13 +122,13 @@ Here comes the corresponding code. This version is only available for strings bu
  const rule = require("./replace_rules.json");   // to introduce the configuration file
         
         var _address = $(elem).find('b')[0].nextSibling.nextSibling // to navigate our target parsing location. the same way as before
-        var address_string = $(_address).text().split(',')[0].split(/-|Rm/)[0].trim() //to roughly get the address with some inconsistent spelled words
+        var address_string = $(_address).text().split(',')[0].split(/- |Rm|Meeting/)[0].split('(Red')[0].trim() //to roughly get the address with some inconsistent spelled words
         var address_stringlist = address_string.split(" ") //to break down the address into single words and store them in array
         
         rule.forEach(function(eachRule){                   //to select each rule in the configuration file. forEach function here will iterater each rule 
             eachRule.from.forEach(function(eachFrom){      //to select each inconsistent spelled word. forEach function here will iterater each word in the "from" array 
                 for (let i = 0; i < address_stringlist.length; i ++){ //to use for loops comparing the word in address_stringlist with the word from "from" array in the configuration file one by one
-                if(eachFrom.indexOf(address_stringlist[i]) >= 0){ //if not matched, the value would be -1, this word would be skipped. if matched, the value would large than 0, then
+                if(eachFrom === address_stringlist[i]){ //if not matched, the value would be -1, this word would be skipped. if matched, the value would large than 0, then
                     address_stringlist[i] = eachRule.to //assign the value in "to" attribute to the word
                 }
               }    
@@ -124,7 +141,7 @@ Here comes the corresponding code. This version is only available for strings bu
 
 > it's wise to approach them all as ten separate zones, not try to do all of that in the same script but then leads to disparate JSON files to all bring back together. ———— Aaron Hill
 
-I contributed the code [wa07_Parse.js](https://github.com/gitacoco/data-structures/blob/master/Weekly_assign_07/wa07_Parse.js) as the base code. So far so good, and this code works for my zone, but may not for each zone. [Lee Kuczewski](https://github.com/leeallennyc/data-structures-fall-2020/tree/master/week7) then did a lot adaptation work and built massive exceptions, especially for the address data, to ensure the code could work for all other zones. The whole data he parsed please refer to [Lee's repository](https://github.com/leeallennyc/data-structures-fall-2020/tree/master/week7/data).
+Currently, we need to manually revise the target zone's number to parse it one by one. But for all zone, we use a consistent rule file. My work flow is to parse all ten zones, merge them together in one file respectively for location and time and then geocode the location data.
 
 ### Step 2 Stitching All Ten Zones Together
 
@@ -145,6 +162,7 @@ for (let i = 0; i<filenamesLocation.length; i++){
     console.log(mergedLocations);
 };
 ```
+But the thing is, in the merged file, each zone is still wrapped in its own array.
 
 ### Step 2 Geocoding the Data 
 
