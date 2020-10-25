@@ -34,7 +34,7 @@ $("tbody tbody tbody tr").each(function (i, elem) {
         for (let i = 0; i < address_stringlist.length; i++) {
             //to use for loops comparing the word in address_stringlist with the word from "from" array in the configuration file one by one
             if (eachFrom === address_stringlist[i]) {
-            //if not matched, the value would be -1, this word would be skipped. if matched, the value would large than 0, then
+            //if the word in eachFrom is same as the word in address_stringlist, then
             address_stringlist[i] = eachRule.to; //assign the value in "to" attribute to the word
             }
         }
