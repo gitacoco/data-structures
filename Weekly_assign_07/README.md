@@ -107,7 +107,6 @@ The configuration file:
   {"from": ["NY","\n\t\t\t\t\t\tNY"],"to": " "},
   {"from": ["(Basement)"],"to": " "},
   {"from": ["Basment","basement."],"to": "Basement"},
-  {"from": ["(Red Door"],"to": " "},
   {"from": ["FL.", "Fl.", "floor"],"to": "Floor"},
   {"from": ["(Room","room."],"to": "Room"},
   {"from": ["rear.","rear"],"to": "Rear"},
