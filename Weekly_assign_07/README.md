@@ -91,7 +91,6 @@ Meeting ID here is the foreign key of the time table. And there would be a new a
 
 To avoid excessive exceptions in the JavasScript file, we could establish an external reference library through JSON format. This could strip rules from JS code. And then the readability of the JS file and the maintainability of the rules will be better. We plan to use a single rule file for all zones. 
 
-Example Code:
 The configuration file:
 ```JSON
 [
