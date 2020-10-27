@@ -46,7 +46,7 @@ For my zone data:
 3. Run `each` function to parse the address data.
 4. Run nested `Each` function to parse the time data.
 
-#### Outcome of Zone 4
+#### The Zone 4 Outcome
 Here comes the results from my console:
 
 1. **the location table example**
