@@ -388,8 +388,7 @@ async.eachSeries(timeForDb, function(value, callback) {
 
 #### Checking The Results
 1. Location Table
-Remaining Issue: there are only 306 rows in my time table, but 374 objects in my `location_geocoded.json`. Lee and I are both plagued by a 's' problem:`error: syntax error at or near's'`. We think this issue is the chief culprit that causes the partial inserting failure. I then searched 's' in my JSON file, I think this problem is because of `'s`. The issue happens because we failed to escape a single quote. If there is a string contains a ' character, and that signals the end of a string. The next character, s is then a syntax error.
-
+Remaining Issue: there are only 306 rows in my time table, but 374 objects in my `location_geocoded.json`. Lee and I are both plagued by a 's' problem:`error: syntax error at or near's'`. We think this issue is the chief culprit that causes the partial inserting failure. I then searched 's' in my JSON file, I think this problem is because of `'s`. The issue happens because we failed to escape a single quote. If there is a string contains a ' character, and that signals the end of a string. The next character, s is then a syntax error. We're digging in and trying to solve this issue.
 ![locationTable](./image/locationTable.png)
 
 1. Time Table
@@ -397,6 +396,8 @@ Remaining Issue: there are 1200 rows in my time table, but 1201 objects in my `t
 ![timeTable](./image/timeTable.png)
 
 ### Special Thanks
+Special Thanks to my Lee Kuczewski. We mutually encouraged, inspired, fought alongside with bugs and overcome this challenge assignment together. I really enjoy working with him.
+And the postponement of this assignment is super appreciated.
 
 ### Thoughts, Debugging and Lesson Learned
 
