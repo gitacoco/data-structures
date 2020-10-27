@@ -396,7 +396,7 @@ Remaining Issue: there are 1200 rows in my time table, but 1201 objects in my `t
 ![timeTable](./image/timeTable.png)
 
 ### Special Thanks
-Special Thanks to Lee Kuczewski. We mutually encouraged, inspired, fought alongside with bugs and overcome this challenge assignment together. I really enjoy working with him.
+Special Thanks to Lee Kuczewski. We mutually encouraged, inspired, fought alongside with bugs and overcomed this unprecedented challenging assignment together. I really enjoy working with him.
 And the postponement of this assignment is super appreciated.
 
 ### Thoughts, Debugging and Lesson Learned
