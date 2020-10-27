@@ -5,10 +5,11 @@ Finish parsing and cleaning the rest of the data in "zone 4" and all other zones
 ## Features Overview
 
 - [x] Cleaning the data 100% through code
-- [x] An external reference file for all exceptions in 10 zones to keep the script neat
+- [x] An external reference file for most of the exceptions in 10 zones to keep the script neat
 - [x] Fully automated data parsing for all 10 zones
+- [x] Merge the data of individual zones through the native method of the JavaScript Array
 - [x] 100% geocoded for all location data
-- [x] Two tables are used to respectively store the location and time data
+- [x] Location and time data are distributed in two PostgreSQL tables respectively
 
 ## Workflow
 
