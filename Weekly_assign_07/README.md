@@ -342,13 +342,48 @@ request(apiRequest, function(error, response, body) {
 Extracting data from the original file and one attribute after another and writing it to a new file looks like a simple and crude way to merge it with the data from API response. I tried to use `.concat()` method, but they console kept showing issues. So I tentatively retain this solution.
 
 ### STEP 4: Populate the Database
-#### Create Tables
+
+#### Creating Tables
+
 ```js
 /////////////////////////
 // Creating the tables:
 ////////////////////////
 var thisLocationsQuery = "CREATE TABLE aalocations (zoneID integer, meetingID integer, meetingName varchar(1000), address varchar(120), city varchar(120), state varchar(2), zipCode integer, lat double precision, lng double precision, buildingName varchar(1000), roomFloor varchar(500), wheelChairAccess boolean,detailsBox varchar(5000));";
 var thisTimeListQuery = "CREATE TABLE aatimeLists (zoneID integer, meetingID integer, day varchar(120), startTime time, endTime time, meetingType varchar(120), specialInterest varchar(255));";
+```
+
+#### Inserting the data
+```js
+// Introduce the address data in DB
+var addressFile="./week7/geocoded_data/location_geocoded.json";
+var addressesForDb = JSON.parse(fs.readFileSync(addressFile));
+
+async.eachSeries(addressesForDb, function(value, callback) {
+    const client = new Client(db_credentials);
+    client.connect();
+    var thisLocationsQuery = "INSERT INTO aalocations VALUES (E'" + value.zoneID + "', E'" + value.meetingID + "', E'" + value.meetingName + "', E'" + value.streetAddress + "', E'" + value.city + "', E'" + value.state + "', E'" + value.zipCode + "', E'" + value.latLong.lat + "', E'" + value.latLong.lng + "', E'" + value.buildingName + "', E'" + value.roomFloor + "', E'" + value.wheelChairAccess + "', E'" + value.detailsBox + "');";
+    client.query(thisLocationsQuery, (err, res) => {
+        console.log(err, res);
+        client.end();
+    });
+    setTimeout(callback, 500); 
+}); 
+
+// Introduce the time data in DB
+var timeFile="./week7/merged_data/time_merged.json";
+var timeForDb = JSON.parse(fs.readFileSync(timeFile));
+
+async.eachSeries(timeForDb, function(value, callback) {
+    const client = new Client(db_credentials);
+    client.connect();
+    var thisLocationsQuery = "INSERT INTO aalocations VALUES (E'" + value.zoneID + "', E'" + value.meetingID + "', E'" + value.day + "', " + value.startTime + ", " + value.endTime + ", " + value.meetingType + ", " + value.specialInterest + ");";
+    client.query(thisLocationsQuery, (err, res) => {
+        console.log(err, res);
+        client.end();
+    });
+    setTimeout(callback, 500); 
+}); 
 ```
 
 ### Special Thanks
