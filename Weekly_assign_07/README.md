@@ -386,6 +386,10 @@ async.eachSeries(timeForDb, function(value, callback) {
 }); 
 ```
 
+#### Checking The Results
+1. Location Table
+![locationTable](./image/locationTable.png)
+
 ### Special Thanks
 
 ### Thoughts, Debugging and Lesson Learned
