@@ -175,7 +175,9 @@ Considering there are not many places need to use regular expressions to deal wi
 
 #### Other Zones One by One
 
-> it's wise to approach them all as ten separate zones, not try to do all of that in the same script but then leads to disparate JSON files to all bring back together. ———— Aaron Hill
+> It's wise to approach them all as ten separate zones, not try to do all of that in the same script but then leads to disparate JSON files to all bring back together. ———— Aaron Hill
+
+I totally agree with the strategy above, because there are nuances among zones. We need to use our code to test zones one after another to make sure that our rule or exceptions could cover all zones. More specifically, we need to `console.log` the address to see if there are fugitives or someone be ‘accidentally injured’. 
 
 Currently, we need to manually revise the target zone's number to parse it one by one. But for all zone, we use a consistent rule file. My work flow is to parse my zone first, continue to parse all other zones individually and supplement the rules at the same time, merge them together in one file respectively for location and time data, and then geocode the location data.
 
