@@ -38,10 +38,12 @@ I continue to use the data model that I created in [weekly assignment 4](https:/
 
 #### Parsing the file
 
-The code please refer to [wa07_Parse.js](https://github.com/gitacoco/data-structures/blob/master/Weekly_assign_07/wa07_Parse.js). The basic workflow: 
+The code please refer to [wa07_Parse.js](https://github.com/gitacoco/data-structures/blob/master/Weekly_assign_07/parse.js). My workflow is to parse my zone first, then continue to test all other zones individually and supplement the rules at the same time, then parse them automatically through a `for loop`, then merge them together in one file respectively for location and time data, and then geocode the location data.
+
+For my zone data:
 1. I defined two parallel arrays: `var locationList = [];` and `var timeList = [];`
 2. Navigate to our target HTML tags. **There is a hateful pitfall here!** When I was examining the HTML file, I found there is only one pair of `<tbody></tbody>` tag. So I wrote `$('tbody tr')` in the selector. When I finished my code, it did not work at all. I started the tough voyage of debugging. I printed each step reversely, finally found the problems is from this step. **There are two pairs of invisible `<tbody></tbody>`. This would be elaborated in the last part of this documentation.
-3. Run `Each` function to parse the address data.
+3. Run `each` function to parse the address data.
 4. Run nested `Each` function to parse the time data.
 
 #### Outcome of Zone 4
@@ -179,7 +181,26 @@ Considering there are not many places need to use regular expressions to deal wi
 
 I totally agree with the strategy above, because there are nuances among zones. We need to use our code to test zones one after another to make sure that our rules or exceptions could cover all zones. More specifically, we need to `console.log` the address for each zone to see if there are fugitives or someone be ‘accidentally injured’. 
 
-After the checking process, currently, we need to manually revise the target zone's number to parse it one by one. My work flow is to parse my zone first, continue to parse all other zones individually and supplement the rules at the same time, merge them together in one file respectively for location and time data, and then geocode the location data.
+After the checking process, currently, I wrote a for loop to avoid manually revising the target zone's number one by one. 
+
+```JS
+for (var i=1;i<11;i++){
+    
+    var fileNumber = i
+
+    var content = fs.readFileSync('data/' + fileNumber + '.txt');
+    
+    // here put the original parsing code
+    
+    fs.writeFileSync('week7/parsed_location_data/AA' + fileNumber + 'L.json', JSON.stringify(locationList));
+    console.log('Zone' + fileNumber + ' location file written')
+    
+    fs.writeFileSync('week7/parsed_time_data/AA' + fileNumber + 'T.json', JSON.stringify(timeList));
+    console.log('Zone' + fileNumber + ' time file written')
+
+
+};
+```
 
 ### STEP 2: Stitching All Ten Zones Together
 

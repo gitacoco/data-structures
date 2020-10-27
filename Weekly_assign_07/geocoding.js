@@ -70,6 +70,6 @@ async.eachSeries(addressList, function(addressObject, callback) {
 
 function() {
     fs.writeFileSync('week7/geocoded_data/location_geocoded.json', JSON.stringify(location_geocoded));
-    console.log('writing file finished');
-    console.log(`Number of meetings in this zone: ${location_geocoded.length}`);
+    console.log('geocoding task finished');
+    console.log(`Number of meetings totally: ${location_geocoded.length}`);
 });
