@@ -87,7 +87,7 @@ Meeting ID here is the foreign key of the time table. And there would be a new a
 
 #### External Reference File for Exceptions
 
-To avoid excessive exceptions in the JavasScript file, we could establish an external reference library through JSON format. This could strip rules from JS code. And then the readability of the JS file and the maintainability of the rules will be better. (This is a strategy for optimization with a low priority)
+To avoid excessive exceptions in the JavasScript file, we could establish an external reference library through JSON format. This could strip rules from JS code. And then the readability of the JS file and the maintainability of the rules will be better. We plan to use a single rule file for all zones. 
 
 Example Code:
 The configuration file:
@@ -177,9 +177,9 @@ Considering there are not many places need to use regular expressions to deal wi
 
 > It's wise to approach them all as ten separate zones, not try to do all of that in the same script but then leads to disparate JSON files to all bring back together. ———— Aaron Hill
 
-I totally agree with the strategy above, because there are nuances among zones. We need to use our code to test zones one after another to make sure that our rule or exceptions could cover all zones. More specifically, we need to `console.log` the address to see if there are fugitives or someone be ‘accidentally injured’. 
+I totally agree with the strategy above, because there are nuances among zones. We need to use our code to test zones one after another to make sure that our rules or exceptions could cover all zones. More specifically, we need to `console.log` the address for each zone to see if there are fugitives or someone be ‘accidentally injured’. 
 
-Currently, we need to manually revise the target zone's number to parse it one by one. But for all zone, we use a consistent rule file. My work flow is to parse my zone first, continue to parse all other zones individually and supplement the rules at the same time, merge them together in one file respectively for location and time data, and then geocode the location data.
+After the checking process, currently, we need to manually revise the target zone's number to parse it one by one. My work flow is to parse my zone first, continue to parse all other zones individually and supplement the rules at the same time, merge them together in one file respectively for location and time data, and then geocode the location data.
 
 ### Step 2 Stitching All Ten Zones Together
 
@@ -233,11 +233,16 @@ And then I use forEach to form a loop. So the final code is:
 
 I tested a way to parse the data and geocode it simultaneously. It really works. But I'll still geocode the data after I get all the cleaned data because I can check the data first before geocoding and ensure that the data is clean enough.
 
-![image of tesing](./geocodingtest.png)
+![image of tesing](./image/geocodingtest.png)
 
 #### Alternative 2: Geocoding after Parsing
 
 ### Step 3 Populate the Database
+
+### Remaining Issues
+
+Our cleaned data is approaching perfection except only one unsettled issue: in Zone 7, there is an item `meetingid=1529` that in the front of  “street address”, there is an unexpected building name. According to our split() rule, the building name will be kept. In terms of cost and maximum efficiency, I think manually editing is a good solution. But I think Aaron expects us to do them all in code. So I have no idea how to solve it. 
+![image](./image/remaining_issue.png)
 
 ### Thoughts, Debugging and Lesson Learned
 
