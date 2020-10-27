@@ -117,7 +117,7 @@ The configuration file:
   {"from": ["event"],"to": "Event"}
 ]
 ```
-Here comes the corresponding code. This version is only available for strings but not regular expressions.
+Here comes the corresponding code:
 ```JS
  const rule = require("./replace_rules.json");   // to introduce the configuration file
         
@@ -136,6 +136,42 @@ Here comes the corresponding code. This version is only available for strings bu
         })
         var address = address_stringlist.join(" ").trim(); //to joins all elements of an array into a string. the separator here is a space
 ```
+This version works with strings and wildcard characters but not regular expressions. If we want to make it compatible with regular expressions, we need the configuration file be like:
+
+``` JSON
+[
+  {
+    "from": ["\s*", "\b", "\s\S"],
+    "to": "Street",
+    "type": "regexp"
+  },
+  {
+    "from": ["Str", "St.", "Str."],
+    "to": "Street",
+    "type": "string"
+  }
+]
+```
+And the JS code need to be like:
+``` JS
+rule.forEach(function(eachRule) {
+  switch (eachRule.type) {
+    case 'string':
+      eachRule.from.forEach(function(eachFrom){
+        for (let i = 0; i < address_stringlist.length; i ++) {
+          if(eachFrom.indexOf(address_stringlist[i]) >= 0) {
+            address_stringlist[i] = eachRule.to
+          }
+        }
+      })
+      break;
+    case 'regexp':
+      // TODO
+      break;
+  }
+})
+```
+Considering there are not many places need to use regular expressions to deal with and the compatibility with them will hugely increase our workload, so we just keep the basic functionality for strings of our configuration file.
 
 #### Other Zones One by One
 
@@ -145,7 +181,9 @@ Currently, we need to manually revise the target zone's number to parse it one b
 
 ### Step 2 Stitching All Ten Zones Together
 
-I use [Array.prototype.concat()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat) to merge 10 arrays(JSON files). This method does not change the existing arrays, but instead returns a new array. 
+I use [Array.prototype.concat()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat) to merge 10 arrays(JSON files). This method does not change the existing arrays, but instead returns a new array. And two resources I found useful: [JSONLint - The JSON Validator](https://jsonlint.com) and [JSON Editor Online](https://jsoneditoronline.org/)
+
+#### The First Attempt
 
 ```JS
 var fs = require('fs');
@@ -166,8 +204,26 @@ var locationMerged = AA01L.concat(AA02L, AA03L, AA04L, AA05L, AA06L, AA07L, AA08
 fs.writeFileSync('./week7/processed_location_data/locationMerged.json', JSON.stringify(locationMerged));
 console.log('Successfully Merged');
 ```
-This is not the best way. Considering we only have 10 files and the time cost, I just 'hardcode' them. If we have a large amount of files, a loop would be helpful.
-And two resources I found useful: [JSONLint - The JSON Validator](https://jsonlint.com) and [JSON Editor Online](https://jsoneditoronline.org/)
+This works. Considering we only have 10 files, I just 'hardcode' them. But ff there are a large amount of files, a loop would be helpful. So I improved my solution.
+
+#### The Optimized Solution
+
+I use `var fileArray = fs.readdirSync('./week7/processed_location_data')` to return an object of array that contains all the file names in the target directory. 
+
+```console
+[ 'AA01L.json',
+  'AA02L.json',
+  'AA03L.json',
+  'AA04L.json',
+  'AA05L.json',
+  'AA06L.json',
+  'AA07L.json',
+  'AA08L.json',
+  'AA09L.json',
+  'AA10L.json' ]
+```
+And then I use forEach to form a loop. So the final code is:
+
 
 ### Step 2 Geocoding the Data 
 
