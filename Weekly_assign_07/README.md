@@ -278,7 +278,7 @@ I tested a way to parse the data and geocode it simultaneously. It really works.
 ### Remaining Issues
 
 Our cleaned data is approaching perfection except only one unsettled issue: in Zone 7, there is an item `meetingid=1529` that in the front of  “street address”, there is an unexpected building name. According to our split() rule, the building name will be kept. In terms of cost and maximum efficiency, I think manually editing is a good solution. But I think Aaron expects us to do them all in code. So I have no idea how to solve it. 
-![image](./image/remaining_issue.png)
+<img src="./image/remaining_issue.png" width="50%" height="50%">
 
 ### Thoughts, Debugging and Lesson Learned
 
