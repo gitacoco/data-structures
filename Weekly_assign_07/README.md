@@ -5,6 +5,7 @@ Finish parsing and cleaning the rest of the data in "zone 4" and all other zones
 ## Features Overview
 
 - [x] Cleaning the data 100% through code
+- [x] Hybrid strategies and multiple methods introduced for the exceptions
 - [x] An external reference file for most of the exceptions in 10 zones to keep the script neat
 - [x] Fully automated data parsing for all 10 zones
 - [x] Merge the data of individual zones through the native method of the JavaScript Array
