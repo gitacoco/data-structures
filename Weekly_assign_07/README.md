@@ -335,12 +335,6 @@ Extracting data from the original file and one attribute after another and writi
 
 ### STEP 4: Populate the Database
 
-### Remaining Issues
-
-Our cleaned data is approaching perfection except only one unsettled issue: in Zone 7, there is an item `meetingid=1529` that in the front of  “street address”, there is an unexpected building name. According to our split() rule, the building name will be kept. In terms of cost and maximum efficiency, I think manually editing is a good solution. But I think Aaron expects us to do them all in code. So I have no idea how to solve it. 
-
-<img src="./image/remaining_issue.png" width="50%" height="50%">
-
 ### Special Thanks
 
 ### Thoughts, Debugging and Lesson Learned
@@ -355,3 +349,7 @@ Take Google Calendar as an example, anyone could invite me to join an event. Let
 3. For the **address** information, the blank(you need to fill in) is an input box as well as a search engine. They have features like computer-assisted address association and map-based localization to help your data in good order. However, if you just want to input something in a mess, they won't interfere you.
 
 I think the ranking of freedom of these three information input mechanisms is 1>3>2, and the level of data consistency tends to be 2>3>1. Apparently, the strategies towards the management of different data types should depend on something(I have no idea so far). At least, more strict does not necessarily mean better. This is supposed to be case by case.
+
+2. Based on the first question, how to seek a balance between cost and complete automation？
+
+I think this depends on the frequency, regularity and generality of the issue. In some situations, manually editing will be a good solution.
