@@ -206,7 +206,7 @@ var locationMerged = AA01L.concat(AA02L, AA03L, AA04L, AA05L, AA06L, AA07L, AA08
 fs.writeFileSync('./week7/processed_location_data/locationMerged.json', JSON.stringify(locationMerged));
 console.log('Successfully Merged');
 ```
-This works. Considering we only have 10 files, I just 'hardcode' them. But ff there are a large amount of files, a loop would be helpful. So I improved my solution.
+This does work. Considering we only have 10 files, I just 'hardcode' them. But if there are a large amount of files, a loop would be helpful. So I improved my solution using `forEach`.
 
 #### The Optimized Solution
 
