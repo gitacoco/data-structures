@@ -342,6 +342,14 @@ request(apiRequest, function(error, response, body) {
 Extracting data from the original file and one attribute after another and writing it to a new file looks like a simple and crude way to merge it with the data from API response. I tried to use `.concat()` method, but they console kept showing issues. So I tentatively retain this solution.
 
 ### STEP 4: Populate the Database
+#### Create Tables
+```js
+/////////////////////////
+// Creating the tables:
+////////////////////////
+var thisLocationsQuery = "CREATE TABLE aalocations (zoneID integer, meetingID integer, meetingName varchar(1000), address varchar(120), city varchar(120), state varchar(2), zipCode integer, lat double precision, lng double precision, buildingName varchar(1000), roomFloor varchar(500), wheelChairAccess boolean,detailsBox varchar(5000));";
+var thisTimeListQuery = "CREATE TABLE aatimeLists (zoneID integer, meetingID integer, day varchar(120), startTime time, endTime time, meetingType varchar(120), specialInterest varchar(255));";
+```
 
 ### Special Thanks
 

@@ -77,10 +77,11 @@ for (var i=1;i<11;i++){
                  buildingName = 'Church of the Good Shepard';
                  address = '543 Main Street';
                  roomFloor = 'Basement';
-                 console.log('Zone 7 Outlier Fixed')
+                 //console.log('Zone 7 Outlier Fixed')
                  }
             
             var meetingLocation = {
+                zoneID: fileNumber,
                 meetingID: meetingID,
                 meetingName: meetingName,
                 streetAddress: address,
@@ -116,7 +117,9 @@ for (var i=1;i<11;i++){
                 var eachInfo_notags = $(eachInfo).text().trim();
                 
                     // Day of the week
-                    var day = eachInfo_notags.split('From')[0].trim();
+                    var _day = eachInfo_notags.split('From')[0].trim()
+                    var day = _day.slice(0,-1); // remove plural form
+                    
                     
                     // Start Time
                     var startTime = eachInfo_notags.split('From')[1].split('to')[0].trim();
@@ -147,6 +150,7 @@ for (var i=1;i<11;i++){
                     }
                 
                 var eachTime = {
+                    zoneID: fileNumber,
                     meetingID: meetingID,
                     day: day,
                     startTime: startTime,
@@ -155,7 +159,7 @@ for (var i=1;i<11;i++){
                     specialInterest: interest,
                 };
                 
-                if (day !== 's'){ 
+                if (_day !== 's'){ 
                 // to get rid of two outlier “s” weekday entries
                 timeList.push(eachTime);
                 }

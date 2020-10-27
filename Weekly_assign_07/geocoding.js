@@ -44,6 +44,7 @@ async.eachSeries(addressList, function(addressObject, callback) {
         let longitude = tamuGeo['OutputGeocodes'][0].OutputGeocode.Longitude;
         
         let finalGeo = {
+            zoneID: addressObject['zoneID'],
             meetingID: addressObject['meetingID'],
             streetAddress: address,
             buildingName: addressObject['buildingName'],
