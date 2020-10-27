@@ -4,7 +4,7 @@ Finish parsing and cleaning the rest of the data in "zone 4" and all other zones
 
 ## Workflow
 
-### Step 1 Parsing the HTML File
+### STEP 1: Parsing the HTML File
 
 In Weekly Assignment 2, I parsed limited addresses data in Zone 4 of AA meetings. In this step, I will parse the rest of the data in [4.txt](/Weekly_assign_01/data/4.txt).
 
@@ -181,7 +181,7 @@ I totally agree with the strategy above, because there are nuances among zones. 
 
 After the checking process, currently, we need to manually revise the target zone's number to parse it one by one. My work flow is to parse my zone first, continue to parse all other zones individually and supplement the rules at the same time, merge them together in one file respectively for location and time data, and then geocode the location data.
 
-### Step 2 Stitching All Ten Zones Together
+### STEP 2: Stitching All Ten Zones Together
 
 I use [Array.prototype.concat()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat) to merge 10 arrays(JSON files). This method does not change the existing arrays, but instead returns a new array. And two resources I found useful: [JSONLint - The JSON Validator](https://jsonlint.com) and [JSON Editor Online](https://jsoneditoronline.org/)
 
@@ -225,9 +225,45 @@ I use `var fileArray = fs.readdirSync('./week7/processed_location_data')` to ret
   'AA10L.json' ]
 ```
 And then I use forEach to form a loop. So the final code is:
+```JS
+var fs = require('fs');
 
+//////////////////////
+// To Merge Location Data
+//////////////////////
 
-### Step 2 Geocoding the Data 
+var location_file_path = './parsed_data/location/'
+var location_file_list = fs.readdirSync(location_file_path)
+
+var merged_location_file = [];
+
+location_file_list.forEach(function(file_name){
+    var eachFile = location_file_path + file_name
+    var data = JSON.parse(fs.readFileSync(eachFile));
+    merged_location_file =merged_location_file.concat(data);
+})
+
+fs.writeFileSync('./week7/merged_data/location_merged.json', JSON.stringify(merged_location_file));
+
+//////////////////////
+// To Merge Time Data
+//////////////////////
+
+var time_file_path = './parsed_data/time/'
+var time_file_list = fs.readdirSync(time_file_path)
+
+var merged_file = [];
+
+time_file_list.forEach(function(file_name){
+    var eachFile = time_file_path + file_name
+    var data = JSON.parse(fs.readFileSync(eachFile));
+    merged_file = merged_file.concat(data);
+})
+
+fs.writeFileSync('./week7/merged_data/time_merged.json', JSON.stringify(merged_file));
+```
+
+### STEP 3: Geocoding the Location Data 
 
 #### Alternative 1: Geocoding while Parsing
 
@@ -237,7 +273,7 @@ I tested a way to parse the data and geocode it simultaneously. It really works.
 
 #### Alternative 2: Geocoding after Parsing
 
-### Step 3 Populate the Database
+### STEP 4: Populate the Database
 
 ### Remaining Issues
 
