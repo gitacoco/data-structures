@@ -173,7 +173,7 @@ rule.forEach(function(eachRule) {
 ```
 Considering there are not many places need to use regular expressions to deal with and the compatibility with them will hugely increase our workload, so we just keep the basic functionality for strings of our configuration file.
 
-#### Other Zones One by One
+#### Testing Other Zones One by One and then Merging them Together
 
 > It's wise to approach them all as ten separate zones, not try to do all of that in the same script but then leads to disparate JSON files to all bring back together. ———— Aaron Hill
 
