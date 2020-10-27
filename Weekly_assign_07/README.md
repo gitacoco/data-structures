@@ -2,6 +2,14 @@
 
 Finish parsing and cleaning the rest of the data in "zone 4" and all other zones, and update/replace my PostgreSQL table(s) with the new data. This would include **all the data** I may need for the final map in Final Assignment 1.
 
+## Features Overview
+
+- [x] Cleaning the data 100% through code
+- [x] An external reference file for all exceptions in 10 zones to keep the script neat
+- [x] Fully automated data parsing for all 10 zones
+- [x] 100% geocoded for all location data
+- [x] Two tables are used to respectively store the location and time data
+
 ## Workflow
 
 ### STEP 1: Parsing the HTML File
