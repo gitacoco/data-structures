@@ -273,6 +273,45 @@ I tested a way to parse the data and geocode it simultaneously. It really works.
 
 #### Alternative 2: Geocoding after Parsing
 
+This step is the easiest one：just continue to use the script from weekly assignment 3. We have two options here: 
+1. build a new file that combines the original information and the API response. 
+2. Overwrite the original dataset we introduced.
+I chose the first strategy because this is more under control: I do not want my original file be 'injured'.
+
+The request part of my geocoding script:
+```JS
+request(apiRequest, function(error, response, body) {
+        //if (err){ throw err; }
+        
+        let tamuGeo = JSON.parse(body);
+        
+        let city = tamuGeo['InputAddress'].City;
+        let state = tamuGeo['InputAddress'].State;
+        let latitude = tamuGeo['OutputGeocodes'][0].OutputGeocode.Latitude;
+        let longitude = tamuGeo['OutputGeocodes'][0].OutputGeocode.Longitude;
+        
+        let finalGeo = {
+            meetingID: addressObject['meetingID'],
+            streetAddress: address,
+            buildingName: addressObject['buildingName'],
+            roomFloor: addressObject['roomFloor'],
+            city: city,
+            state: state,
+            zipCode: addressObject['zipCode'],
+            detailsBox: addressObject['detailsBox'],
+            wheelChair: addressObject['wheelChair'],
+            latLong: 
+                {lat: latitude, 
+                lng: longitude}
+            };
+        
+        //location_geocoded = addressObject.concat(finalGeo);
+        location_geocoded.push(finalGeo);
+        console.log(location_geocoded);
+    });
+```
+Extracting data from the original file and one attribute after another and writing it to a new file looks like a simple and crude way to merge it with the data from API response. I tried to use `.concat()` method, but they console kept showing issues. So I tentatively retain this solution.
+
 ### STEP 4: Populate the Database
 
 ### Remaining Issues
@@ -280,6 +319,8 @@ I tested a way to parse the data and geocode it simultaneously. It really works.
 Our cleaned data is approaching perfection except only one unsettled issue: in Zone 7, there is an item `meetingid=1529` that in the front of  “street address”, there is an unexpected building name. According to our split() rule, the building name will be kept. In terms of cost and maximum efficiency, I think manually editing is a good solution. But I think Aaron expects us to do them all in code. So I have no idea how to solve it. 
 
 <img src="./image/remaining_issue.png" width="50%" height="50%">
+
+### Special Thanks
 
 ### Thoughts, Debugging and Lesson Learned
 
