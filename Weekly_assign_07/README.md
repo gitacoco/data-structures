@@ -41,8 +41,8 @@ I continue to use the data model that I created in [weekly assignment 4](https:/
 The code please refer to [wa07_Parse.js](https://github.com/gitacoco/data-structures/blob/master/Weekly_assign_07/wa07_Parse.js). The basic workflow: 
 1. I defined two parallel arrays: `var locationList = [];` and `var timeList = [];`
 2. Navigate to our target HTML tags. **There is a hateful pitfall here!** When I was examining the HTML file, I found there is only one pair of `<tbody></tbody>` tag. So I wrote `$('tbody tr')` in the selector. When I finished my code, it did not work at all. I started the tough voyage of debugging. I printed each step reversely, finally found the problems is from this step. **There are two pairs of invisible `<tbody></tbody>`. This would be elaborated in the last part of this documentation.
-3. Run an Each function to parse the address data.
-4. Run an Nested each function to parse the time data.
+3. Run `Each` function to parse the address data.
+4. Run nested `Each` function to parse the time data.
 
 #### Outcome of Zone 4
 Here comes the results from my console:
@@ -224,7 +224,7 @@ I use `var fileArray = fs.readdirSync('./week7/processed_location_data')` to ret
   'AA09L.json',
   'AA10L.json' ]
 ```
-And then I use forEach to form a loop. So the final code is:
+And then I use `forEach` to form a loop. So the final code is:
 ```JS
 var fs = require('fs');
 
