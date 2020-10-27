@@ -41,8 +41,8 @@ I continue to use the data model that I created in [weekly assignment 4](https:/
 The code please refer to [wa07_Parse.js](https://github.com/gitacoco/data-structures/blob/master/Weekly_assign_07/wa07_Parse.js). The basic workflow: 
 1. I defined two parallel arrays: `var locationList = [];` and `var timeList = [];`
 2. Navigate to our target HTML tags. **There is a hateful pitfall here!** When I was examining the HTML file, I found there is only one pair of `<tbody></tbody>` tag. So I wrote `$('tbody tr')` in the selector. When I finished my code, it did not work at all. I started the tough voyage of debugging. I printed each step reversely, finally found the problems is from this step. **There are two pairs of invisible `<tbody></tbody>`. This would be elaborated in the last part of this documentation.
-3. Run an each function to parse the address data.
-4. Run an nested each function to parse the time data.
+3. Run an Each function to parse the address data.
+4. Run an Nested each function to parse the time data.
 
 #### Outcome of Zone 4
 Here comes the results from my console:
@@ -145,24 +145,29 @@ Currently, we need to manually revise the target zone's number to parse it one b
 
 ### Step 2 Stitching All Ten Zones Together
 
-[Lee Kuczewski](https://github.com/leeallennyc/data-structures-fall-2020/tree/master/week7) contributes the following code to merge all individual zones together:
+I use [Array.prototype.concat()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat) to merge 10 arrays(JSON files). This method does not change the existing arrays, but instead returns a new array. 
+
 ```JS
-"use strict"
-// dependencies
-const fs = require('fs'),
-      querystring = require('querystring'),
-      request = require('request'),
-      async = require('async'),
-      dotenv = require('dotenv'),
-      path = require('path');
-// Combining Location Lists
-var filenamesLocation = fs.readdirSync(`${__dirname}/data/locationLists`);
-for (let i = 0; i<filenamesLocation.length; i++){
-    var mergedLocations = JSON.parse(fs.readFileSync(`${__dirname}/data/locationLists/${filenamesLocation[i]}`));
-    console.log(mergedLocations);
-};
+var fs = require('fs');
+
+var AA01L = JSON.parse(fs.readFileSync('./week7/processed_location_data/AA01L.json'));
+var AA02L = JSON.parse(fs.readFileSync('./week7/processed_location_data/AA02L.json'));
+var AA03L = JSON.parse(fs.readFileSync('./week7/processed_location_data/AA03L.json'));
+var AA04L = JSON.parse(fs.readFileSync('./week7/processed_location_data/AA03L.json'));
+var AA05L = JSON.parse(fs.readFileSync('./week7/processed_location_data/AA03L.json'));
+var AA06L = JSON.parse(fs.readFileSync('./week7/processed_location_data/AA03L.json'));
+var AA07L = JSON.parse(fs.readFileSync('./week7/processed_location_data/AA03L.json'));
+var AA08L = JSON.parse(fs.readFileSync('./week7/processed_location_data/AA03L.json'));
+var AA09L = JSON.parse(fs.readFileSync('./week7/processed_location_data/AA03L.json'));
+var AA10L = JSON.parse(fs.readFileSync('./week7/processed_location_data/AA03L.json'));
+
+var locationMerged = AA01L.concat(AA02L, AA03L, AA04L, AA05L, AA06L, AA07L, AA08L, AA09L, AA10L);
+
+fs.writeFileSync('./week7/processed_location_data/locationMerged.json', JSON.stringify(locationMerged));
+console.log('Successfully Merged');
 ```
-But the thing is, in the merged file, each zone is still wrapped in its own array.
+This is not the best way. Considering we only have 10 files and the time cost, I just 'hardcode' them. If we have a large amount of files, a loop would be helpful.
+And two resources I found useful: [JSONLint - The JSON Validator](https://jsonlint.com) and [JSON Editor Online](https://jsoneditoronline.org/)
 
 ### Step 2 Geocoding the Data 
 

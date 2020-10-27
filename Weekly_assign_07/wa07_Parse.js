@@ -3,7 +3,7 @@
 var fs = require("fs");
 var cheerio = require("cheerio");
 
-var content = fs.readFileSync("data/4.txt");
+var content = fs.readFileSync("data/7.txt");
 var $ = cheerio.load(content);
 
 const rule = require("./replace_rules.json"); // to introduce the configuration file
@@ -25,8 +25,7 @@ $("tbody tbody tbody tr").each(function (i, elem) {
   var address_string = $(_address)
     .text()
     .split(",")[0]
-    .split(/- |Rm|Meeting/)[0]
-    .split("(Red")[0]
+    .split(/- |Rm|Meeting|\(Red/)[0]
     .trim(); //to roughly get the address with some inconsistent spelled words
   var address_stringlist = address_string.split(" "); //to break down the address into single words and store them in array
 
@@ -130,8 +129,6 @@ $("tbody tbody tbody tr").each(function (i, elem) {
 
     // Day of the week
     var day = eachInfo_notags.split("From")[0].trim();
-    // !!I have no idea how to skip the outlier entry in each function
-    //console.log(day);
 
     // Start Time
     var startTime = eachInfo_notags.split("From")[1].split("to")[0].trim();
@@ -172,7 +169,10 @@ $("tbody tbody tbody tr").each(function (i, elem) {
       specialInterest: interest,
     };
 
-    timeList.push(eachTime);
+    if (day !== "s") {
+      // to get rid of two outlier “s” weekday entries
+      timeList.push(eachTime);
+    }
   });
 });
 
