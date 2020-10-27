@@ -46,6 +46,7 @@ async.eachSeries(addressList, function(addressObject, callback) {
         let finalGeo = {
             zoneID: addressObject['zoneID'],
             meetingID: addressObject['meetingID'],
+            meetingName: addressObject['meetingName'],
             streetAddress: address,
             buildingName: addressObject['buildingName'],
             roomFloor: addressObject['roomFloor'],
