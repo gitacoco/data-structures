@@ -73,7 +73,7 @@ Fundamental data structures. Data augmentation and integration. GitHub for open 
 * [Javascript data types and structures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures)
 * [Working with objects (JavaScript)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects)  
 
-**Weekly Assignment 3, due Tuesday 9/22 at 6:00pm:**  
+**[Weekly Assignment 3](https://github.com/visualizedata/data-structures/blob/master/weekly_assignment_03.md), due Tuesday 9/22 at 6:00pm:**  
 Using data you parsed last week, you will interface with TAMU GeoServices to augment the data you collected.
 
 #### Documentation:
@@ -93,10 +93,10 @@ Data models I: SQL database.
 * Hills, Chapters 13, 14, 15, and 16 
 * Dourish, Chapter 4
 
-**Weekly Assignment 4, due Tuesday 9/29 at 6:00pm:**  
+**[Weekly Assignment 4](https://github.com/visualizedata/data-structures/blob/master/weekly_assignment_04.md), due Tuesday 9/29 at 6:00pm:**  
 You will design a schema, create a new managed PostgreSQL database, and write SQL code to populate your database with your AA data.  
 
-**Final Assignment 1 distributed:** Map of AA meetings in Manhattan.
+**[Final Assignment 1](https://github.com/visualizedata/data-structures/blob/master/final_assignment_1.md) distributed:** Map of AA meetings in Manhattan.
 
 #### Documentation: 
 
@@ -114,10 +114,10 @@ Data models I: NoSQL database.
 * Hills, Chapter 17  
 * Dourish, Chapter 5 
 
-**Weekly Assignment 5, due Tuesday 10/6 at 9:00am:**  
+**[Weekly Assignment 5](https://github.com/visualizedata/data-structures/blob/master/weekly_assignment_05.md), due Tuesday 10/6 at 9:00am:**  
 You will design a (non)schema, create a new managed DynamoDB database, and write code to populate your database with your "Process Blog" data. 
 
-**Final Assignment 2 distributed:** "Process Blog," a source of semi-structured, qualitative data.  
+**[Final Assignment 2 distributed](https://github.com/visualizedata/data-structures/blob/master/final_assignment_2.md):** "Process Blog," a source of semi-structured, qualitative data.  
 
 ### October 7 (Week 6)
 
@@ -129,7 +129,7 @@ The Query. Indexes, joins, query optimization, and data restructuring. The E-R m
 * [Database as Symbolic Form](https://www.semanticscholar.org/paper/Database-as-Symbolic-Form-Manovich/d5d48898c764dc3949547354978815670c90ebc5), Lev Manovich  
 * Gitelman, Data Flakes: An Afterword to "Raw Data" Is an Oxymoron
 
-**Weekly Assignment 6, due Tuesday 10/13 at 6:00pm:**  
+**[Weekly Assignment 6](https://github.com/visualizedata/data-structures/tree/master/weekly_assignment_06), due Tuesday 10/13 at 6:00pm:**  
 You will write queries for both the SQL and NoSQL databases you have created, filtering, aggregating, and/or restructuring the data in the process. 
 
 ### October 14 (Week 7)
@@ -138,7 +138,7 @@ Data cleaning. Logging issues.
 
 Data cleaning workshop. 
 
-**Weekly Assignment 7, due Tuesday 10/20 at 6:00pm:**  
+**[Weekly Assignment 7](https://github.com/visualizedata/data-structures/blob/master/weekly_assignment_07.md), due Tuesday 10/20 at 6:00pm:**  
 Finish parsing and cleaning the rest of the AA data in all ten Manhattan "zones", and update/replace the data in your Postgres table(s).  
 
 #### Read:
@@ -152,7 +152,7 @@ Finish parsing and cleaning the rest of the AA data in all ten Manhattan "zones"
 
 ### October 21 (Week 8)
 
-**Note: [IEEE VIS](http://ieeevis.org/year/2020/welcome) conference is October 20-25**
+**Note: [IEEE VIS](http://ieeevis.org/year/2020/welcome) conference is October 25-30**
 
 Sensors. Data gathering and surveillance.
 
@@ -172,6 +172,8 @@ Switching gears from previous assignments, you will use an IoT development board
 [slides]
 
 IoT.
+
+**Note: [IEEE VIS](http://ieeevis.org/year/2020/welcome) conference is October 25-30**
 
 **Weekly Assignment 9, due Tuesday 11/3 at 6:00pm:**  
 You will begin writing sensor data to a database. 
