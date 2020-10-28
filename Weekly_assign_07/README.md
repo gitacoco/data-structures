@@ -8,7 +8,7 @@ Finish parsing and cleaning the rest of the data in "zone 4" and all other zones
 - [x] Hybrid strategies and multiple methods introduced for the exceptions
 - [x] An external reference file for most of the exceptions in 10 zones to keep the script neat
 - [x] Fully automated data parsing for all 10 zones
-- [x] Merge the data of individual zones through the native method of the JavaScript Array
+- [x] Merging the data of individual zones through the native method of the JavaScript Array
 - [x] 100% geocoded for all location data
 - [x] Location and time data are distributed in two PostgreSQL tables respectively
 
