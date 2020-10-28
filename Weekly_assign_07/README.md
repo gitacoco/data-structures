@@ -396,8 +396,12 @@ Remaining Issue: there are 1200 rows in my time table, but 1201 objects in my `t
 ![timeTable](./image/timeTable.png)
 
 ### Special Thanks
+
+This structured and elaborate class and the postponement of this assignment is super appreciated. Weekly Assignment 7 is a 'synthesizer': when I look back, all the assignments gather together and become signal lamps, leading me to find the path of integrating corresponding knowledge. Although this class is of great intense, I'll benefit from this problem-driven learning experience enduringly.
+
 Special Thanks to Lee Kuczewski. We mutually encouraged, inspired, fought alongside with bugs and overcame this unprecedented challenging assignment together. I really enjoy working with him.
-And the postponement of this assignment is super appreciated.
+
+And thank [Min Tian](http://vis.pku.edu.cn/people/mintian/) at Peking University, [Can Liu](http://vis.pku.edu.cn/people/canliu/) at Peking University and Jiahao Zhang[https://github.com/zjhch123] at Microsoft Suzhou for answering my endless questions with enormous patience. They let me see the possibility of various strategies in problem-solving, and make me know all roads lead to Rome, but always keep your code neat and elegant.
 
 ### Thoughts, Debugging and Lesson Learned
 
