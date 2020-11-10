@@ -20,11 +20,11 @@ var getAndWriteData = function() {
     });
 };
 ```
-I printed the results in console, and it looks great:
+I printed the results in console. And it looks great:
 ![img](./console1.png)
 
 ## Data Inserting
-However, when I was trying to insert the data to PostgreSQL, errors happened. That looks like a promise problem. I tried to use the .catch(), but I couldn't figure it out. I don't want to give up on the humidity, so I leave it here tentatively.
+However, when I was trying to insert the data to PostgreSQL, errors happened. That looks like a promise problem. I tried to use the .catch(), but I couldn't figure it out. I don't want to give up on the humidity, so I left it here tentatively.
 
 ```console
 ec2-user:~/environment $ node insert_week9.js
