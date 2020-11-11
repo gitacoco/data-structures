@@ -7,11 +7,11 @@
 ### Data Points Status
 ![img](./Show.gif)
 
-### Locate yourself
+### Locating yourself
 ![img](./Magnify.gif)
 
-### Filter by Days
+### Filtered by Days
 ![img](./filter.gif)
 
-### Select one of them
+### Selecting one of them
 ![img](./select.gif)
