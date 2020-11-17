@@ -1,17 +1,19 @@
 # Weekly Assignment 10
 
 ## Final Project 1: A.A. Meeting Platform
-### Panel Expanding
+### Searching Strategy
+### Design
+#### Panel Expanding
 ![img](./Expand.gif)
 
-### Data Points Status
+#### Data Points Status
 ![img](./Show.gif)
 
-### Locating yourself
+#### Locating yourself
 ![img](./Magnify.gif)
 
-### Filtered by Days
+#### Filtered by Days
 ![img](./filter.gif)
 
-### Selecting one of them
+#### Selecting one of them
 ![img](./select.gif)
