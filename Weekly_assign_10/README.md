@@ -27,13 +27,14 @@
 This project aims to collect and display the temperature/humidity(T/H) data at my home through a DHT22 sensor.
 ### Glyph-based Visualization for Multidimensional Data
 ### Design Alternatives
-1. The first version
+1. **The first version**
 
 ![img](./p3-1.png)
 This version of design visualized the difference between indoor and outdoor temperature and humidity. But it failed to support comparisons beyond the single box neither vertically nor horizontally.  
 
-2. The second version  
- In this design, the website draws a scatter plot every two hours forming a microclimate landscape. Users can hover on one of them to reveal the connections across time and dates to see the changing trend. The TRANSPOSE function will help users switch the variables for the best comparison, that is, when the Y-axis is Humidity and the X-axis is Temperature, users could compare humidity over a range of dates and temperature over time in a single day and vice versa.
+2. **The second version**  
+ 
+In this version of design, the website draws a scatter plot every two hours forming a microclimate landscape. Users can hover on one of them to reveal the connections across time and dates to see the changing trend. The TRANSPOSE function will help users switch the variables for the best comparison, that is, when the Y-axis is Humidity and the X-axis is Temperature, users could compare humidity over a range of dates and temperature over time in a single day and vice versa.
 
 **Comparison Enhanced: Hover to connect**
 ![Hover](./project3-2.gif)
