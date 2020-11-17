@@ -2,6 +2,9 @@
 
 ## Final Project 1: A.A. Meeting Platform
 ### Searching Strategy
+1. Why I'm not using 'Search by distance'
+2. Why I'm not using 'Search by date'
+
 ### Design
 #### Panel Expanding
 ![img](./Expand.gif)
