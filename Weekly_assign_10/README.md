@@ -28,10 +28,12 @@ This project aims to collect and display the temperature/humidity(T/H) data at m
 ### Glyph-based Visualization for Multidimensional Data
 ### Design Alternatives
 1. The first version
+
 ![img](./p3-1.png)
 This version of design visualized the difference between indoor and outdoor temperature and humidity. But it failed to support comparisons beyond the single box neither vertically nor horizontally.  
 
-2. The second version
+2. The second version  
  In this design, the website draws a scatter plot every two hours forming a microclimate landscape. Users can hover on one of them to reveal the connections across time and dates to see the changing trend. The TRANSPOSE function will help users switch the variables for the best comparison.
+
 ![img](./project3-2.gif)
 ![img](./project3-1.gif)
