@@ -35,7 +35,7 @@ INSERT INTO sensorData VALUES (23.799999237060547, 48.20000076293945, DEFAULT);
 ```
 
 ### Updated on Nov 28 2020
-I spent tons of time debugging the code, I tested the code from all levels even directly used the starter code. And finally I found that the starter code missed `const dotenv = require('dotenv'); dotenv.config();`, so before I starting PM2, my code would fail to connect to the database and return the `UnhandledPromiseRejectionWarning`.
+I spent tons of time debugging the code, I tested the code from all levels even directly used the starter code. And finally I found that the starter code missed `const dotenv = require('dotenv'); dotenv.config();`, so before I starting PM2, my code would fail to connect to the database and return the `UnhandledPromiseRejectionWarning`. But I still have no idea why Aaron could run it without introducing the environment variables: in the videos, I only noticed that Aaron export `PHOTON_ID` and `PHOTON_TOKEN` but no `db_credentials.password`
 
 After confirming that my code is workable, I launched PM2 to run it in the background.
 
@@ -57,10 +57,13 @@ Below is the table returned:
 │    6    │        18.5        │         55         │ 2020-11-28T09:13:51.604Z │
 │    7    │        18.5        │ 55.20000076293945  │ 2020-11-28T09:24:04.175Z │
 │    8    │ 18.399999618530273 │ 54.20000076293945  │ 2020-11-28T09:29:04.202Z │
+│    9    │ 18.399999618530273 │ 53.79999923706055  │ 2020-11-28T09:34:04.271Z │
+│   10    │ 18.399999618530273 │ 53.79999923706055  │ 2020-11-28T09:39:06.241Z │
+│   11    │ 18.399999618530273 │        54.5        │ 2020-11-28T09:44:06.560Z │
 └─────────┴────────────────────┴────────────────────┴──────────────────────────┘
 ┌─────────┬───────┐
 │ (index) │ count │
 ├─────────┼───────┤
-│    0    │  '9'  │
+│    0    │ '12'  │
 └─────────┴───────┘
 ```
