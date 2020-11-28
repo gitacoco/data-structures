@@ -20,7 +20,8 @@ var getAndWriteData = function() {
     });
 };
 ```
-I printed the results in console. And it looks great:
+I printed the results in the console. And it looks great:
+
 ![img](./console1.png)
 
 ## Data Inserting
