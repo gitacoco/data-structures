@@ -36,6 +36,10 @@ INSERT INTO sensorData VALUES (23.799999237060547, 48.20000076293945, DEFAULT);
 ### Updated on Nov 28 2020
 I spent tons of time debugging the code, I tested the code from all levels even directly used the starter code. And finally I found that the starter code missed `const dotenv = require('dotenv'); dotenv.config();`, so before I starting PM2, my code would fail to connect to the database and return the `UnhandledPromiseRejectionWarning`.
 
+After confirming that my code is workable, I launched PM2 to run it in the background.
+
+![img](./pm2.png)
+
 ## Checking My Work
 Luckily I finally make it several weeks before the final presentation. 
 Below is the table returned:
