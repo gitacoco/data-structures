@@ -35,9 +35,11 @@ INSERT INTO sensorData VALUES (23.799999237060547, 48.20000076293945, DEFAULT);
 ```
 
 ### Debugging: Updated on Nov 28 2020
-I spent tons of time debugging the code, I tested the code from all levels even directly used the starter code. And finally I found that the starter code missed `const dotenv = require('dotenv'); dotenv.config();`, so before I starting PM2, my code would fail to connect to the database and return the `UnhandledPromiseRejectionWarning`. But I still have no idea why Aaron could run it without introducing the environment variables: in the videos, I only noticed that Aaron export `PHOTON_ID` and `PHOTON_TOKEN` but no `AWSRDS_PW`
+I spent tons of time debugging the code, I tested the code from all levels even directly used the starter code. And finally I found that the starter code missed `const dotenv = require('dotenv'); dotenv.config();`, so before I starting PM2, my code would fail to connect to the database and return the `UnhandledPromiseRejectionWarning`. 
 
-After confirming that my code is workable, I launched PM2 to run it in the background.
+But I still have no idea why Aaron could run it without introducing the environment variables: in the videos, I only noticed that Aaron export `PHOTON_ID` and `PHOTON_TOKEN` but no `AWSRDS_PW`.
+
+Anyway, after confirming that my code is workable, I launched PM2 to run it in the background.
 
 ![img](./pm2.png)
 
