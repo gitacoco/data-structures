@@ -44,7 +44,7 @@ After confirming that my code is workable, I launched PM2 to run it in the backg
 ## Checking My Work
 Luckily I finally make it several weeks before the final presentation. 
 Below is the table returned:
-`
+```console
 ┌─────────┬────────────────────┬────────────────────┬──────────────────────────┐
 │ (index) │    temperature     │      humidity      │        sensortime        │
 ├─────────┼────────────────────┼────────────────────┼──────────────────────────┤
@@ -63,4 +63,4 @@ Below is the table returned:
 ├─────────┼───────┤
 │    0    │  '9'  │
 └─────────┴───────┘
-`
+```
