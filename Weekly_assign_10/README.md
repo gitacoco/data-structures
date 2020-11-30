@@ -1,4 +1,4 @@
-# Weekly Assignment 10
+# Weekly Assignment 10: Interface Design
 
 ## Final Project 1: A.A. Meeting Platform
 ### Searching Strategy
