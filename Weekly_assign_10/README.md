@@ -23,7 +23,11 @@
 
 ## Final Project 2: Blog Data
 This project aims to surveil my activities every day.
+### Design
+#### Hovering Entries
 ![img](./p2-hovering.gif)
+
+#### Click One Entry
 ![img](./p2-expand.gif)
 
 ## Final Project 3: Sensor Data
