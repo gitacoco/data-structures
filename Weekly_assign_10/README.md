@@ -22,6 +22,9 @@
 ![img](./select.gif)
 
 ## Final Project 2: Blog Data
+This project aims to surveil my activities every day.
+![img](./p2-hovering.gif)
+![img](./p2-expand.gif)
 
 ## Final Project 3: Sensor Data
 This project aims to collect and display the temperature/humidity(T/H) data at my home through a DHT22 sensor.
