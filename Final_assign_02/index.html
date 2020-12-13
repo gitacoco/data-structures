@@ -6,14 +6,13 @@
     <title>Persional Blog</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
-    <script src="./sketch.js"></script>
     <link rel="stylesheet" href="./blog.css" />
 </head>
 
 <body id="canvas">
     <div class="title">efficiency<br>Blog with<br>Energy<br>Bars</div>
     <div class="counter"></div>
-    <div class="button" id="sort">Sort by Date</div>
+    <div class="button" id="sortkey">Sort by Date</div>
     <div class="button" id="yes">Class Day</div>
     <div class="button" id="no">Free Day</div>
 
@@ -60,6 +59,7 @@
                 let insert = `<div id="${data.timestamp['N']}" class="item classday class${i}" >
                         <h3>Class Day: ${data.ClassDay['S']}</h3>
                         <h3>${data.date['S']}</h3>
+                        <h3>City: ${data.location['S']}</h3>
                         <h5>Mood: ${data.mood['S']}</h5>
                     </div>`
                 $('.base').append(insert)
@@ -86,6 +86,7 @@
                 let insert = `<div id="${data.timestamp['N']}"  class="item freeday free${i}" >
                         <h3>Class Day: ${data.ClassDay['S']}</h3>
                         <h3>${data.date['S']}</h3>
+                        <h3>City: ${data.location['S']}</h3>
                         <h5>Mood: ${data.mood['S']}</h5>
                     </div>`
                 $('.base').append(insert)
@@ -101,7 +102,7 @@
             }
         }
 
-        $('body').on('click', '#sort', function () {
+        $('body').on('click', '#sortkey', function () {
             $(".item").sort(function (a, b) {
                 return parseInt(a.id) - parseInt(b.id);
             }).each(function () {
@@ -162,9 +163,9 @@
         function windowResized() {
             resizeCanvas(windowWidth, windowHeight);
             clear();
-            var count_class = $(".base #classday").length
+            var count_class = $(".base .classday").length
             console.log(count_class)
-            var count_free = $(".base #freeday").length
+            var count_free = $(".base .freeday").length
 
             for (var i = 0; i < count_class; i++) {
                 stroke('#EDCE7D');
@@ -176,7 +177,7 @@
             }
 
             for (var i = 0; i < count_free; i++) {
-                stroke('#EDCE7D');
+                stroke('#8BD667');
                 var x1 = document.querySelector(`.free${i}`).getBoundingClientRect().x - 10;
                 var y1 = document.querySelector(`.free${i}`).getBoundingClientRect().y + 55;
                 if (y1 > -100 && y1 < 2100) {
@@ -189,7 +190,7 @@
         $('body').on('click', '#yes.button', function () {
             $('.classday').remove()
             clear();
-            var count_free = $(".base #freeday").length
+            var count_free = $(".base .freeday").length
             for (var i = 0; i < count_free; i++) {
                 stroke('#8BD667');
                 var x1 = document.querySelector(`.free${i}`).getBoundingClientRect().x - 10;
@@ -211,7 +212,7 @@
         $('body').on('click', '#no.button', function () {
             $('.freeday').remove()
             clear();
-            var count_class = $(".base #classday").length
+            var count_class = $(".base .classday").length
             for (var i = 0; i < count_class; i++) {
                 stroke('#EDCE7D');
                 var x1 = document.querySelector(`.class${i}`).getBoundingClientRect().x - 10;
