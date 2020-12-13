@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Persional Blog</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+    <script src="./sketch.js"></script>
+    <link rel="stylesheet" href="./blog.css" />
+</head>
+
+<body id="canvas">
+    <div class="title">efficiency<br>Blog with<br>Energy<br>Bars</div>
+    <div class="counter"></div>
+    <div class="button" id="sort">Sort by Date</div>
+    <div class="button" id="yes">Class Day</div>
+    <div class="button" id="no">Free Day</div>
+
+
+    <div id="sketch-holder"></div>
+    <div class="centerframe">
+        <!-- <div class="header"></div> -->
+
+        <div class="base">
+            <!-- <div class="item">
+                <h3>Beijing</h3>
+                <h5>▲ Positive</h5>
+            </div> -->
+        </div>
+    </div>
+    <script>
+        var x_class = document.querySelector('#yes').getBoundingClientRect().x + 90;
+        var y_class = document.querySelector('#yes').getBoundingClientRect().y;
+
+        var x_free = document.querySelector('#no').getBoundingClientRect().x + 90;
+        var y_free = document.querySelector('#no').getBoundingClientRect().y;
+
+        function setup() {
+            var cnv = createCanvas(windowWidth, windowHeight);
+            cnv.parent("sketch-holder");
+            cnv.style("z-index", "-1");
+            cnv.style("position", "fixed");
+            cnv.style("pointer-events", "none");
+            //background(255, 0, 200, 0);
+            var url_class = 'https://zigbgeduhc.execute-api.us-east-2.amazonaws.com/finalblog_API/blogentry/yes'
+            var url_no = 'https://zigbgeduhc.execute-api.us-east-2.amazonaws.com/finalblog_API/blogentry/no'
+            loadJSON(url_class, drawline1);
+            loadJSON(url_no, drawline2);
+        }
+
+        function drawline1(data) {
+            var items = data['Items']
+            var count_class = data['Count']
+
+            $('.counter').append(`Total Entries: ${count_class}`)
+
+            for (var i = 0; i < count_class; i++) {
+                let data = items[i]
+                let insert = `<div id="${data.timestamp['N']}" class="item classday class${i}" >
+                        <h3>Class Day: ${data.ClassDay['S']}</h3>
+                        <h3>${data.date['S']}</h3>
+                        <h5>Mood: ${data.mood['S']}</h5>
+                    </div>`
+                $('.base').append(insert)
+            }
+
+            for (var i = 0; i < count_class; i++) {
+                stroke('#EDCE7D');
+                var x1 = document.querySelector(`.class${i}`).getBoundingClientRect().x - 10;
+                var y1 = document.querySelector(`.class${i}`).getBoundingClientRect().y + 55;
+                if (y1 > -100 && y1 < 2100) {
+                    line(x_class, y_class, x1, y1);
+                } else { }
+            }
+        }
+
+        function drawline2(data) {
+            var items = data['Items']
+            var count_free = data['Count']
+
+            $('.counter').append(` + ${count_free}`)
+
+            for (var i = 0; i < count_free; i++) {
+                let data = items[i]
+                let insert = `<div id="${data.timestamp['N']}"  class="item freeday free${i}" >
+                        <h3>Class Day: ${data.ClassDay['S']}</h3>
+                        <h3>${data.date['S']}</h3>
+                        <h5>Mood: ${data.mood['S']}</h5>
+                    </div>`
+                $('.base').append(insert)
+            }
+
+            for (var i = 0; i < count_free; i++) {
+                stroke('#8BD667');
+                var x1 = document.querySelector(`.free${i}`).getBoundingClientRect().x - 10;
+                var y1 = document.querySelector(`.free${i}`).getBoundingClientRect().y + 55;
+                if (y1 > -100 && y1 < 2100) {
+                    line(x_free, y_free, x1, y1);
+                } else { }
+            }
+        }
+
+        $('body').on('click', '#sort', function () {
+            $(".item").sort(function (a, b) {
+                return parseInt(a.id) - parseInt(b.id);
+            }).each(function () {
+                var elem = $(this);
+                elem.remove();
+                $(elem).appendTo(".base");
+            });
+            clear();
+            var count_class = $(".base .classday").length
+            console.log(count_class)
+            var count_free = $(".base .freeday").length
+
+            for (var i = 0; i < count_class; i++) {
+                stroke('#EDCE7D');
+                var x1 = document.querySelector(`.class${i}`).getBoundingClientRect().x - 10;
+                var y1 = document.querySelector(`.class${i}`).getBoundingClientRect().y + 55;
+                if (y1 > -100 && y1 < 2100) {
+                    line(x_class, y_class, x1, y1);
+                } else { }
+            }
+
+            for (var i = 0; i < count_free; i++) {
+                stroke('#8BD667');
+                var x1 = document.querySelector(`.free${i}`).getBoundingClientRect().x - 10;
+                var y1 = document.querySelector(`.free${i}`).getBoundingClientRect().y + 55;
+                if (y1 > -100 && y1 < 2100) {
+                    line(x_free, y_free, x1, y1);
+                } else { }
+            }
+        })
+
+
+        $(document).scroll(function () {
+            clear();
+            var count_class = $(".base .classday").length
+            console.log(count_class)
+            var count_free = $(".base .freeday").length
+
+            for (var i = 0; i < count_class; i++) {
+                stroke('#EDCE7D');
+                var x1 = document.querySelector(`.class${i}`).getBoundingClientRect().x - 10;
+                var y1 = document.querySelector(`.class${i}`).getBoundingClientRect().y + 55;
+                if (y1 > -100 && y1 < 2100) {
+                    line(x_class, y_class, x1, y1);
+                } else { }
+            }
+
+            for (var i = 0; i < count_free; i++) {
+                stroke('#8BD667');
+                var x1 = document.querySelector(`.free${i}`).getBoundingClientRect().x - 10;
+                var y1 = document.querySelector(`.free${i}`).getBoundingClientRect().y + 55;
+                if (y1 > -100 && y1 < 2100) {
+                    line(x_free, y_free, x1, y1);
+                } else { }
+            }
+        })
+
+        function windowResized() {
+            resizeCanvas(windowWidth, windowHeight);
+            clear();
+            var count_class = $(".base #classday").length
+            console.log(count_class)
+            var count_free = $(".base #freeday").length
+
+            for (var i = 0; i < count_class; i++) {
+                stroke('#EDCE7D');
+                var x1 = document.querySelector(`.class${i}`).getBoundingClientRect().x - 10;
+                var y1 = document.querySelector(`.class${i}`).getBoundingClientRect().y + 55;
+                if (y1 > -100 && y1 < 2100) {
+                    line(x_class, y_class, x1, y1);
+                } else { }
+            }
+
+            for (var i = 0; i < count_free; i++) {
+                stroke('#EDCE7D');
+                var x1 = document.querySelector(`.free${i}`).getBoundingClientRect().x - 10;
+                var y1 = document.querySelector(`.free${i}`).getBoundingClientRect().y + 55;
+                if (y1 > -100 && y1 < 2100) {
+                    line(x_free, y_free, x1, y1);
+                } else { }
+            }
+        }
+
+
+        $('body').on('click', '#yes.button', function () {
+            $('.classday').remove()
+            clear();
+            var count_free = $(".base #freeday").length
+            for (var i = 0; i < count_free; i++) {
+                stroke('#8BD667');
+                var x1 = document.querySelector(`.free${i}`).getBoundingClientRect().x - 10;
+                var y1 = document.querySelector(`.free${i}`).getBoundingClientRect().y + 55;
+                if (y1 > -100 && y1 < 2100) {
+                    line(x_free, y_free, x1, y1);
+                } else { }
+            }
+            $('#yes').attr('class', 'button_clicked');
+        });
+
+        $('body').on('click', '#yes.button_clicked', function () {
+            var url_class = 'https://zigbgeduhc.execute-api.us-east-2.amazonaws.com/finalblog_API/blogentry/yes'
+            loadJSON(url_class, drawline1);
+            $('#yes').attr('class', 'button');
+        });
+
+
+        $('body').on('click', '#no.button', function () {
+            $('.freeday').remove()
+            clear();
+            var count_class = $(".base #classday").length
+            for (var i = 0; i < count_class; i++) {
+                stroke('#EDCE7D');
+                var x1 = document.querySelector(`.class${i}`).getBoundingClientRect().x - 10;
+                var y1 = document.querySelector(`.class${i}`).getBoundingClientRect().y + 55;
+                if (y1 > -100 && y1 < 2100) {
+                    line(x_class, y_class, x1, y1);
+                } else { }
+            }
+            $('#no').attr('class', 'button_clicked');
+        });
+
+        $('body').on('click', '#no.button_clicked', function () {
+            var url_no = 'https://zigbgeduhc.execute-api.us-east-2.amazonaws.com/finalblog_API/blogentry/no'
+            loadJSON(url_no, drawline2);
+            $('#no').attr('class', 'button');
+        });
+
+
+        // data.ClassDay
+        // data.activities
+        // data.date
+        // data.exercise
+        // data.sleep_duration
+        // data.donelist.SS[0]
+    </script>
+
+
+</body>
+
+</html>
