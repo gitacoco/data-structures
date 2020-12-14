@@ -415,7 +415,7 @@ The returned rows of the timelist is matched to the object amount, which is 1201
 
 ![timeTable](./image/timeTable.png)
 
-##### Update on Dec 15 2020
+#### Update on Dec 15 2020
 The above issue has been solved by adding ‘double dollar quoting’ to escape all apostrophes.
 ```JS
 var thisLocationsQuery = "INSERT INTO aalocations VALUES ($$" + value.zoneID + "$$, $$" + value.meetingID + "$$, $$" + value.meetingName + "$$, $$" + value.streetAddress + "$$, $$" + value.city + "$$, $$" + value.state + "$$, $$" + value.zipCode + "$$, $$" + value.latLong.lat + "$$, $$" + value.latLong.lng + "$$, $$" + value.buildingName + "$$, $$" + value.roomFloor + "$$, $$" + value.wheelChair + "$$);";
