@@ -156,7 +156,7 @@ Finish parsing and cleaning the rest of the AA data in all ten Manhattan "zones"
 
 Sensors. Data gathering and surveillance.
 
-**Weekly Assignment 8, due Tuesday 10/27 at 6:00pm:**  
+**[Weekly Assignment 8](https://github.com/visualizedata/data-structures/tree/master/weekly_assignment_08), due Tuesday 11/10 at 6:00pm:**  
 Switching gears from previous assignments, you will use an IoT development board and sensors to collect and log data to your local computer. You will also sketch your first iteration of the design of an interactive visualization of the data you will collect from the sensor.
 
 #### Read:
@@ -175,14 +175,16 @@ IoT.
 
 **Note: [IEEE VIS](http://ieeevis.org/year/2020/welcome) conference is October 25-30**
 
+<<<<<<< HEAD
 **Weekly Assignment 9, due Tuesday 11/3 at 6:00pm:**  
+=======
+**[Weekly Assignment 9](https://github.com/visualizedata/data-structures/tree/master/weekly_assignment_09), due Tuesday 11/10 at 6:00pm:**  
+>>>>>>> upstream/master
 You will begin writing sensor data to a database. 
 
 **Final Assignment 3 distributed:** Surveilling your life. 
 
 **DUE Wednesday 11/4 at 12:00pm: IEEE VIS conference presentation summary**
-
-Debate: SQL vs. NoSQL 
 
 #### Read: 
 
@@ -194,18 +196,21 @@ Debate: SQL vs. NoSQL
 
 From database to visual representation.  Interface design.
 
-**Weekly Assignment 10, due Tuesday 11/10 at 6:00pm:**  
+**[Weekly Assignment 10](https://github.com/visualizedata/data-structures/blob/master/weekly_assignment_10.md), due Tuesday 11/10 at 6:00pm:**  
 You will submit the final designs for the interfaces for each of your three data sources.  
+
+Debate: SQL vs. NoSQL [[1/2](https://www.nytimes.com/interactive/2020/10/27/upshot/biden-trump-poll-quiz.html) | [3/4](https://coronavirus.jhu.edu/map.html)]
 
 #### Read:
 
-* Gitelman, Chapter 1 
+* Gitelman, Chapter 1  
+* [New York Times: Slump in Air Travel Hindered Weather Forecasting, Study Shows](https://www.nytimes.com/2020/10/29/climate/slump-in-air-travel-hindered-weather-forecasting-study-shows.html?action=click&module=Latest&pgtype=Homepage) 
 
 ### November 11 (Week 11)
 
 Serverless computing. 
 
-**Weekly Assignment 11, due Tuesday 11/17 at 6:00pm:**   
+**Weekly Assignment 11, due Tuesday 12/1 at 6:00pm:**   
 You will migrate your work to a serverless computing environment. 
 
 #### Read: 
@@ -230,7 +235,7 @@ You will create endpoints to connect your data to the design of your front-end i
 #### Read:
 
 * Klepmann, Chapter 1. Read from the beginning through the "Reliability Section." 
-* [How the internet works](https://edri.org/wp-content/uploads/2013/10/paper03_web_20120123.pdf)  
+* [How the internet works](https://edri.org/files/2012EDRiPapers/how_the_internet_works.pdf)  
 
 ### November 25: No class, Thanksgiving holiday
 
@@ -258,7 +263,11 @@ Discussion: Maintainability. Lab.
 
 ### December 16 (Week 15)
 
-In the final class meeting, you will present your work in groups, by theme: 1) reliability, 2) scalability, and 3) maintainability. 
+In the final class meeting, you will present your work in groups, by theme. Group and theme assignments: 
+
+* **Reliability**: Dallas, Isabel, Justin, Tiffany, and Zhibang  
+* **Scalability**: Amina, Baihan, James, and Morgane    
+* **Maintainability**: Jessie, Lee, Ripley, and Sherry  
 
 Terminating and cleaning up your AWS resources and credentials. [**checklist**]
 
