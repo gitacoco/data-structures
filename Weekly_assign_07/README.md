@@ -410,9 +410,21 @@ client.query(thisQuery, (err, res) => {
 Remaining Issue: there are only 306 rows in my time table, but 374 objects in my `location_geocoded.json`. Lee and I are both plagued by a 's' problem:`error: syntax error at or near's'`. We think this issue is the chief culprit that causes the partial inserting failure. I then searched 's' in my JSON file, I think this problem is because of `'s`. The issue happens because we failed to escape a single quote. If there is a string contains a ' character, and that signals the end of a string. The next character, s is then a syntax error. We're digging in and trying to solve this issue.
 ![locationTable](./image/locationTable.png)
 
-1. Time Table
+2. Time Table
 The returned rows of the timelist is matched to the object amount, which is 1201 objects, in my `time_merged.json`.
 ![timeTable](./image/timeTable.png)
+
+##### Update on Dec 15 2020
+The above issue has been solved by adding ‘double dollar quoting’ to escape all apostrophes.
+```JS
+var thisLocationsQuery = "INSERT INTO aalocations VALUES ($$" + value.zoneID + "$$, $$" + value.meetingID + "$$, $$" + value.meetingName + "$$, $$" + value.streetAddress + "$$, $$" + value.city + "$$, $$" + value.state + "$$, $$" + value.zipCode + "$$, $$" + value.latLong.lat + "$$, $$" + value.latLong.lng + "$$, $$" + value.buildingName + "$$, $$" + value.roomFloor + "$$, $$" + value.wheelChair + "$$);";
+```
+And, there are 3 records have no zipcode which will cause a null warning when populating the database. I checked in the AA meeting webpage and confirmed that they has no such data originally. So I manually supplemented the zipcode for these records.
+
+Finally, I checked the data again and got a table that covers all 374 records completely.
+![locationTable](./image/checklocation.png)
+
+
 
 ### Special Thanks
 

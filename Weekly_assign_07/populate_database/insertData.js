@@ -19,7 +19,8 @@ var addressesForDb = JSON.parse(fs.readFileSync(addressFile));
 async.eachSeries(addressesForDb, function(value, callback) {
     const client = new Client(db_credentials);
     client.connect();
-    var thisLocationsQuery = "INSERT INTO aalocations VALUES (E'" + value.zoneID + "', E'" + value.meetingID + "', E'" + value.meetingName + "', E'" + value.streetAddress + "', E'" + value.city + "', E'" + value.state + "', E'" + value.zipCode + "', " + value.latLong.lat + ", " + value.latLong.lng + ", E'" + value.buildingName + "', E'" + value.roomFloor + "', E'" + value.wheelChair + "', E'" + value.detailsBox + "');";
+    var thisLocationsQuery = "INSERT INTO aalocations VALUES ($$" + value.zoneID + "$$, $$" + value.meetingID + "$$, $$" + value.meetingName + "$$, $$" + value.streetAddress + "$$, $$" + value.city + "$$, $$" + value.state + "$$, $$" + value.zipCode + "$$, $$" + value.latLong.lat + "$$, $$" + value.latLong.lng + "$$, $$" + value.buildingName + "$$, $$" + value.roomFloor + "$$, $$" + value.wheelChair + "$$);";
+    
     client.query(thisLocationsQuery, (err, res) => {
         console.log(err, res);
         client.end();
@@ -28,16 +29,16 @@ async.eachSeries(addressesForDb, function(value, callback) {
 }); 
 
 // Introduce the time data in DB
-var timeFile="./week7/merged_data/time_merged.json";
-var timeForDb = JSON.parse(fs.readFileSync(timeFile));
+// var timeFile="./week7/merged_data/time_merged.json";
+// var timeForDb = JSON.parse(fs.readFileSync(timeFile));
 
-async.eachSeries(timeForDb, function(value, callback) {
-    const client = new Client(db_credentials);
-    client.connect();
-    var thisTimeQuery = "INSERT INTO aatimeLists VALUES (E'" + value.zoneID + "', E'" + value.meetingID + "', E'" + value.day + "', E'" + value.startTime + "', E'" + value.endTime + "', E'" + value.meetingType + "', E'" + value.specialInterest + "');";
-    client.query(thisTimeQuery, (err, res) => {
-        console.log(err, res);
-        client.end();
-    });
-    setTimeout(callback, 500); 
-}); 
+// async.eachSeries(timeForDb, function(value, callback) {
+//     const client = new Client(db_credentials);
+//     client.connect();
+//     var thisTimeQuery = "INSERT INTO aatimeLists VALUES (E'" + value.zoneID + "', E'" + value.meetingID + "', E'" + value.day + "', E'" + value.startTime + "', E'" + value.endTime + "', E'" + value.meetingType + "', E'" + value.specialInterest + "');";
+//     client.query(thisTimeQuery, (err, res) => {
+//         console.log(err, res);
+//         client.end();
+//     });
+//     setTimeout(callback, 500); 
+// }); 
