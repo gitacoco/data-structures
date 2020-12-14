@@ -3,7 +3,7 @@
 
 body {
   background-color: #07223c;
-  min-width: 1700px;
+  min-width: 1500px;
 }
 
 .title {
@@ -22,11 +22,25 @@ body {
   color: #BDBDBD;
 }
 
-.counter {
-  top: 4.8em;
-  right: 2em;
+.countspace {
+  top: 7em;
+  right: 3em;
   position: fixed;
   margin-right: 50px;
+  display: flex;
+  flex-direction: row;
+}
+
+.counter {
+  color: white;
+  font-size: 25px;
+  font-family: IBM Plex Sans;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.name {
+  padding-right: 10px;
   color: white;
   font-size: 25px;
   font-family: IBM Plex Sans;
@@ -38,6 +52,14 @@ body {
   top: 8em;
   right: 5em;
   position: fixed;
+}
+
+#sort_clicked{
+  top: 8em;
+  right: 5em;
+  position: fixed;
+  /* visibility: hidden; */
+  pointer-events: none;
 }
 
 .centerframe {
@@ -62,13 +84,13 @@ body {
 } */
 
 #yes {
-  left: 7em;
+  left: 6.5em;
   top: 35em;
   cursor: pointer;
 }
 
 #no {
-  left: 7em;
+  left: 6.5em;
   top: 65em;
   cursor: pointer;
 }
@@ -79,7 +101,7 @@ body {
   flex-direction: column;
   width: 60%;
   max-width: 800px;
-  min-width: 700px;
+  /* min-width: 700px; */
 }
 
 .button {

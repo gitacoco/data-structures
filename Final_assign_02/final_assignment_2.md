@@ -20,6 +20,7 @@ You will expand on weekly assignments 5, 6, 7, 10, and 11 to to capture, clean, 
 7. The method for binding the data to the visual representation  
 
 ## Reference
-1. [Creating a front-end for Lambda functions (Getting started with AWS Lambda, part 9)](https://www.youtube.com/watch?v=mfAT38B_uhw&feature=youtu.be&t=8m3s)
-2. [Using API Gateway To Get Data From Dynamo DB Without Using AWS Lambda](https://medium.com/@likhita507/using-api-gateway-to-get-data-from-dynamo-db-using-without-using-aws-lambda-e51434a4f5a0)
+1. [P5.js, Loading external files: AJAX, XML, JSON](https://github.com/processing/p5.js/wiki/Loading-external-files:-AJAX,-XML,-JSON)
+2. [Creating a front-end for Lambda functions (Getting started with AWS Lambda, part 9)](https://www.youtube.com/watch?v=mfAT38B_uhw&feature=youtu.be&t=8m3s)
+3. [Using API Gateway To Get Data From Dynamo DB Without Using AWS Lambda](https://medium.com/@likhita507/using-api-gateway-to-get-data-from-dynamo-db-using-without-using-aws-lambda-e51434a4f5a0)
 
