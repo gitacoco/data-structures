@@ -385,7 +385,7 @@
     "roomFloor": "",
     "city": "New York",
     "state": "NY",
-    "zipCode": "null",
+    "zipCode": "10007",
     "detailsBox": "",
     "wheelChair": false
   },
@@ -853,7 +853,7 @@
     "roomFloor": "Basement",
     "city": "New York",
     "state": "NY",
-    "zipCode": "null",
+    "zipCode": "10014",
     "detailsBox": "Literature",
     "wheelChair": false
   },
@@ -3739,7 +3739,7 @@
     "roomFloor": "",
     "city": "New York",
     "state": "NY",
-    "zipCode": "null",
+    "zipCode": "10023",
     "detailsBox": "",
     "wheelChair": true
   },
