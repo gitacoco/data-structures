@@ -412,6 +412,7 @@ Remaining Issue: there are only 306 rows in my time table, but 374 objects in my
 
 2. Time Table
 The returned rows of the timelist is matched to the object amount, which is 1201 objects, in my `time_merged.json`.
+
 ![timeTable](./image/timeTable.png)
 
 ##### Update on Dec 15 2020
@@ -422,9 +423,8 @@ var thisLocationsQuery = "INSERT INTO aalocations VALUES ($$" + value.zoneID + "
 And, there are 3 records have no zipcode which will cause a null warning when populating the database. I checked in the AA meeting webpage and confirmed that they has no such data originally. So I manually supplemented the zipcode for these records.
 
 Finally, I checked the data again and got a table that covers all 374 records completely.
+
 ![locationTable](./image/checklocation.png)
-
-
 
 ### Special Thanks
 
