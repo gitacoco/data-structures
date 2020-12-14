@@ -120,7 +120,7 @@ app.get('/temperature', function(req, res) {
 app.get('/processblog', function(req, res) {
     // AWS DynamoDB credentials
     AWS.config = new AWS.Config();
-    AWS.config.region = "us-east-1";
+    AWS.config.region = "us-east-2";
     console.log(req.query.type);
     var topic = "cats";
     if (["cats", "personal", "work"].includes(req.query.type)) {
