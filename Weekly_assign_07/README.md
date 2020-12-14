@@ -411,7 +411,7 @@ Remaining Issue: there are only 306 rows in my time table, but 374 objects in my
 ![locationTable](./image/locationTable.png)
 
 1. Time Table
-Remaining Issue: there are 1200 rows in my time table, but 1201 objects in my `time_merged.json`
+The returned rows of the timelist is matched to the object amount, which is 1201 objects, in my `time_merged.json`.
 ![timeTable](./image/timeTable.png)
 
 ### Special Thanks
