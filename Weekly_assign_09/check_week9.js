@@ -5,7 +5,8 @@ dotenv.config();
 // AWS RDS POSTGRESQL INSTANCE
 var db_credentials = new Object();
 db_credentials.user = 'gitacoco';
-db_credentials.host = process.env.AWSRDS_EP;
+db_credentials.host = 'data-structures.cmwlovjahk2o.us-east-2.rds.amazonaws.com';
+//db_credentials.host = process.env.AWSRDS_EP;
 db_credentials.database = 'aa';
 db_credentials.password = process.env.AWSRDS_PW;
 db_credentials.port = 5432;
